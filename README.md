@@ -8,10 +8,10 @@
 ### Problem Statement
 It is very common to use trolleys in supermarkets, they are machines which help us in easily carrying around a lot of items we wish to purchase in the supermarket. However, the trolleys need not be simple mechanical machines which help us in carrying items, we can extend the services which they provide to a far greater extent by digitalization of these trolleys. 
 Some of the common issues faced in super markets are listed below:
-In big supermarkets, it is very difficult to contact a sales person every time to find out whether a particular product we want is available or not, to enquire about its price and to know the offers made on that product.
-Generally, the number of items on our checklist is large when we are shopping in supermarkets, this means that a greater amount of time is wasted roaming around the mall just to search for the items we want to purchase.
-It is very common that we may forget or not come across certain products we wish to purchase in the supermarket, and unlike in e-commerce websites like amazon and flipkart there is no item recommendation system for an individual customer based on his/her taste and other parameters.
-Some of the items may be very costly and delicate, these items may fall down and get damaged when the trolley hits them due to the carelessness of the customer.
+In big supermarkets, it is very difficult to contact a sales person every time to find out whether a particular product we want is available or not, to enquire about its price and to know the offers made on that product. <br />
+Generally, the number of items on our checklist is large when we are shopping in supermarkets, this means that a greater amount of time is wasted roaming around the mall just to search for the items we want to purchase. <br />
+It is very common that we may forget or not come across certain products we wish to purchase in the supermarket, and unlike in e-commerce websites like amazon and flipkart there is no item recommendation system for an individual customer based on his/her taste and other parameters. <br />
+Some of the items may be very costly and delicate, these items may fall down and get damaged when the trolley hits them due to the carelessness of the customer. <br />
 
 ### Approach
 #### Solution for problem 1
