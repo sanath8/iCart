@@ -1,0 +1,24 @@
+{
+  "max_histories": [
+    5
+  ], 
+  "python": "2.7.15", 
+  "ensemble_name": "rasa_core.policies.ensemble.SimplePolicyEnsemble", 
+  "rasa_core": "0.11.12", 
+  "policy_names": [
+    "rasa_core.policies.keras_policy.KerasPolicy"
+  ], 
+  "action_fingerprints": {
+    "utter_goodbye": {
+      "slots": []
+    }, 
+    "action_listen": {
+      "slots": [
+        "cuisine", 
+        "price", 
+        "location", 
+        "people"
+      ]
+    }
+  }
+}
