@@ -14,7 +14,7 @@ It is very common that we may forget or not come across certain products we wish
 Some of the items may be very costly and delicate, these items may fall down and get damaged when the trolley hits them due to the carelessness of the customer.
 
 ### Approach
-    Solution for problem 1
+   Solution for problem 1
         The entire conversation between the customer and sales representative can be automated by embedding an user interface in the trolly which is capable of natural language processing and dialogue state tracking.
         Use Case:
         User : Hi, are shorts available here?
@@ -45,5 +45,5 @@ Solution for problem 4
     The amount of damage which a trolley may do primarily depends on 2 things its proximity to the other object and its speed. By the use of proximity and speed sensors we can set a threshold beyond which the wheels of the trolley would get locked and hence cannot move and harm other items, once the speed of the trolley becomes zero the locks open up.
 
 ### Result/Conclusion
-    A smart trolley is built which not only helps the customer in saving his time and energy, but it is also capable of increasing the owners profits.
+   A smart trolley is built which not only helps the customer in saving his time and energy, but it is also capable of increasing the owners profits.
 
