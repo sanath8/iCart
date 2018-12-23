@@ -1,5 +1,10 @@
 # Intelligent-Trolley-System
 ## A smart trolley which is equipped with accessories capable of increasing marts profits.
+
+### Prototype First look
+
+![screenshot from 2018-12-23 16-00-02](https://user-images.githubusercontent.com/21198781/50382737-398abf00-06cc-11e9-8a3e-de29fbf1c02d.png)
+
 ### Problem Statement
 It is very common to use trolleys in supermarkets, they are machines which help us in easily carrying around a lot of items we wish to purchase in the supermarket. However, the trolleys need not be simple mechanical machines which help us in carrying items, we can extend the services which they provide to a far greater extent by digitalization of these trolleys. 
 Some of the common issues faced in super markets are listed below:
