@@ -19,13 +19,13 @@ Approach
         User : Is there any discount on it?
         Chatbot : 10% off.
 
-    Solution for problem 2
+   Solution for problem 2
         For solving such problems, having a layout/map of the supermarket is a must. Hence, we first create an user interface in which we have a layout of the supermarket along with all the distinct items in the market marked in their respective positions.
 For identifying the position of various items wrt us we make use of IPS(indoor positioning system), using this technology we can obtain the coordinates of various components and customers within the supermarket.
         For minimizing the total distance a customer has to travel to purchase all the products within the market we make use of the travelling salesman problem, where each rack acts as a node and distance between the racks acts as weights. 
 
         
-    Solution for problem 3
+   Solution for problem 3
         Although there are many parameters which decides a person’s interest in an item the most dominant features would be the person’s age, gender, time of the year and products present in the customers trolley. The ways to obtain these features from the customer is listed below:
 age and gender : By attaching a small camera on the opposite side of the trolley we can extract a customers age and gender with the aid of convolutional neural network(CNN).
  time of the year : We can obtain this parameter by using the system date from raspberry pi.
