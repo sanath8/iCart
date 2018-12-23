@@ -13,7 +13,7 @@ Generally, the number of items on our checklist is large when we are shopping in
 It is very common that we may forget or not come across certain products we wish to purchase in the supermarket, and unlike in e-commerce websites like amazon and flipkart there is no item recommendation system for an individual customer based on his/her taste and other parameters.
 Some of the items may be very costly and delicate, these items may fall down and get damaged when the trolley hits them due to the carelessness of the customer.
 
-Approach
+### Approach
     Solution for problem 1
         The entire conversation between the customer and sales representative can be automated by embedding an user interface in the trolly which is capable of natural language processing and dialogue state tracking.
         Use Case:
@@ -44,6 +44,6 @@ Once all the features are extracted and preprocessed they are ready to be feed i
 Solution for problem 4
     The amount of damage which a trolley may do primarily depends on 2 things its proximity to the other object and its speed. By the use of proximity and speed sensors we can set a threshold beyond which the wheels of the trolley would get locked and hence cannot move and harm other items, once the speed of the trolley becomes zero the locks open up.
 
-Result/Conclusion
+### Result/Conclusion
     A smart trolley is built which not only helps the customer in saving his time and energy, but it is also capable of increasing the owners profits.
 
