@@ -1,0 +1,3 @@
+[submodule "rasa/rasa_core"]
+	path = rasa/rasa_core
+	url = https://github.com/RasaHQ/rasa_core.git
