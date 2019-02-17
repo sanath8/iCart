@@ -1,11 +1,15 @@
 import requests
 import xml.etree.ElementTree
+import os.path as path
 
 class UploadAPI:
-    url = 'http://www.betafaceapi.com/service.svc/UploadNewImage_File'
-    api_key = 'd45fd466-51e2-4701-8da8-04351c872236'
-    api_secret = '171e8465-f548-401d-b63b-caf0dc28df5f'
-    def __init__(self, imageBase64):
+    def getAPIInfo(self, api_bank):
+        api_info = api_bank.provide()
+        # print(api_info)
+        __class__.url = path.join(api_info['base_url'], 'UploadNewImage_File')
+        __class__.api_key = api_info['api_key']
+        __class__.api_secret = api_info['api_secret']
+    def setImageBase64(self, imageBase64):
         self.imageBase64 = imageBase64
     def run(self):
         print("Running upload API...")
@@ -21,11 +25,13 @@ class UploadAPI:
 </ImageRequestBinary>
         '''
 
-        print(request_body_data)
+        # print(request_body_data)
+        # print(__class__.url)
         response = requests.post(url=__class__.url, headers=request_header, data=request_body_data)
-        print("This is the response")
-        print(response)
+        # print("This is the response")
+        # print(response.text)
 
-        xml_tree = xml.etree.ElementTree.fromstring(response.text).getroot()
-        img_uid = xml_tree.findall("img_uid")[0]
-        print(img_uid)
+        xml_tree = xml.etree.ElementTree.fromstring(response.text)
+        img_uid_element = xml_tree.findall("img_uid")[0]
+        # print(img_uid.text)
+        return img_uid_element.text
