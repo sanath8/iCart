@@ -1,0 +1,68 @@
+.header {
+    width: 100vw;
+    background-color:  #000000;
+    height: 5vh;
+    text-align: center;
+    color: #ffffff;
+    line-height: 1
+}
+.body{
+    display: inline-block;
+    width: 100vw;
+    height: 75vh;
+}
+.chatbot {
+    float: left;
+    width: auto;
+    height: inherit;
+    background-color:  #6E48AA;
+    overflow: auto;
+}
+.graph {
+    display: block;
+    width: auto;
+    height: inherit;
+    background-size: 100% 100%;
+    background-color: grey;
+    overflow: hidden;
+}
+#theCanvas{
+    background-color: white;
+	width:100%;
+	height:100%;
+}
+.recommender {
+    vertical-align: middle;
+    width: 100vw;
+    height: 19vh;
+    background-color: #4DB6AC;
+}
+.item {
+    margin: 0;
+    width: 25%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+}
+.details{
+    margin: 0;
+    width: auto;
+    height: 100%;
+    float: left;
+    /* overflow: auto; */
+}
+div{
+    margin: 0;
+}
+.item img{
+    margin: 0;
+    float: left;
+    margin: 1px;
+    width: 40%;
+    height: 100%;
+    opacity: 0.9;
+}
+label{
+    margin: 0;
+    font-size: 2vw;
+}
