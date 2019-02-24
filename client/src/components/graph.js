@@ -1,7 +1,7 @@
 import React from 'react';
 import './../css/main.css';
   
-const nodes = [{x:40,y:25},{x:40,y:70},{x:40,y:115},{x:70,y:115},{x:70,y:70},{x:70,y:25}]
+const nodes = [{x:50,y:25},{x:125,y:25},{x:200,y:25},{x:200,y:75},{x:125,y:75},{x:50,y:75}]
 
 class Graph extends React.Component {
     state = {
@@ -9,10 +9,10 @@ class Graph extends React.Component {
     };
     componentDidMount() {
         this.updateCanvas();
-        if (!this.state.intervalIsSet) {
-            let interval = setInterval(this.updateCanvas, 10000);
-            this.setState({ intervalIsSet: interval });
-        }
+        // if (!this.state.intervalIsSet) {
+        //     let interval = setInterval(this.updateCanvas, 10000);
+        //     this.setState({ intervalIsSet: interval });
+        // }
     }
     componentWillUnmount() {
         if (this.state.intervalIsSet) {
@@ -27,7 +27,7 @@ class Graph extends React.Component {
         }
         ctx.beginPath();
         ctx.moveTo(nodes[0].x+2.5, nodes[0].y+2.5)
-        for( var i=0; i<6; i++){
+        for( i=0; i<6; i++){
             ctx.lineTo(nodes[(i+1)%6].x+2.5, nodes[(i+1)%6].y+2.5)
         }
         ctx.moveTo(nodes[1].x+2.5, nodes[1].y+2.5)

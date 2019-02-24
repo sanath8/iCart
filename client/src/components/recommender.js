@@ -1,4 +1,5 @@
 import React from 'react';
+// import axios from "axios";
 import './../css/main.css';
 class Recommender extends React.Component {
     state = {
@@ -8,11 +9,11 @@ class Recommender extends React.Component {
     
     componentDidMount() {
         this.getDataFromDb();
-        if (!this.state.intervalIsSet) {
-            let interval = setInterval(this.getDataFromDb, 10000);
-            this.setState({ intervalIsSet: interval });
-        }
-        console.log(this.state.data);
+        // if (!this.state.intervalIsSet) {
+        //     let interval = setInterval(this.getDataFromDb, 10000);
+        //     this.setState({ intervalIsSet: interval });
+        // }
+        // console.log(this.state.data);
     }
 
     componentWillUnmount() {
@@ -25,7 +26,8 @@ class Recommender extends React.Component {
     getDataFromDb = () => {
         fetch("http://localhost:3001/api/getData")
           .then(data => data.json())
-          .then(res => this.setState({ data: res.data }));
+          .then(res => this.setState({ data: res.data }))
+          .catch(err => console.log(err));
     };
     render() {
       const { data } = this.state;

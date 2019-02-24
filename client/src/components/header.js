@@ -4,7 +4,7 @@ class Header extends React.Component {
    render() {
       return (
          <div className="header">
-            <h1>Header</h1>
+            <label>iCart</label>
          </div>
       );
    }
