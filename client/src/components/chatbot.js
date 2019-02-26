@@ -22,11 +22,11 @@ class Chatbot extends React.Component {
       this.setState({
         input: input
       });
-      console.log("Input changed", input);
+      // console.log("Input changed", input);
     };
   
     onKeyPress = button => {
-      console.log("Button pressed", button);
+      // console.log("Button pressed", button);
       if (button === "{shift}" || button === "{lock}") this.handleShift();
     };
   
@@ -79,8 +79,8 @@ class Chatbot extends React.Component {
    render() {
       return (
          <div className="chatbot">
-            <Datalist getCart = {this.props.getCart}/>
-            <div class="chatbotHeader">Need any Help?</div>
+            <Datalist getCart = {this.props.getCart} getData = {this.props.getData}/>
+            <div className="chatbotHeader">Need any Help?</div>
             <div className="messageArea" id="postContainer"></div>
             <div>
                <textarea 

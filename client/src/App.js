@@ -11,7 +11,7 @@ class App extends Component {
   // initialize our state 
   state = {
     list: [],
-  //   data: [],
+    data: [],
   //   intervalIsSet: false,
   };
 
@@ -40,17 +40,22 @@ class App extends Component {
       list: list
     })
   }
+  getData = (data) => {
+    this.setState({
+      data: data
+    })
+  }
   render() {
     // const { data } = this.state;
     return (
       <div>
         <Header/>
       <div className="body">
-        <Chatbot getCart={this.getCart}/>
+        <Chatbot getCart={this.getCart} getData={this.getData}/>
         <Graph/>
         <CartList list={this.state.list}/>
       </div>
-        <Recommender/>
+        <Recommender data={this.state.data}/>
       </div>
     );
   }

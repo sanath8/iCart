@@ -1,34 +1,63 @@
 import React from 'react';
 import './../css/main.css';
-import Keyboard from "react-simple-keyboard";
+// import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 
 class Datalist extends React.Component {
    state = {
-      data: ['oreo','shampoo','lays','shoe'],
+      // data: ['oreo','shampoo','lays','shoe'],
+      data: [],
+      productNames: [],
       cart: [],
       layoutName2: "default",
       input2: ""
    }
    
-   onChange2 = input2 => {
-      this.setState({
-        input2: input2
-      });
-      console.log("Input changed", input2);
-    };
+   componentDidMount() {
+         this.getDataFromDb();
+         // if (!this.state.intervalIsSet) {
+         //     let interval = setInterval(this.getDataFromDb, 10000);
+         //     this.setState({ intervalIsSet: interval });
+         // }
+         // console.log(this.state.data);
+   }
+
+   componentWillUnmount() {
+         // if (this.state.intervalIsSet) {
+         //    clearInterval(this.state.intervalIsSet);
+         //    this.setState({ intervalIsSet: null });
+         // }
+   }
+   getDataFromDb = () => {
+         fetch("http://localhost:3001/api/getData")
+         .then(data => data.json())
+         .then(res => this.setState({ data: res.data }))
+         .catch(err => console.log(err));
+   };
+   getProductNames = () => {
+      this.state.data.forEach(element => {
+         if(!this.state.productNames.includes(element.productName))
+         this.state.productNames.push(element.productName)
+      })
+   }
+   // onChange2 = input2 => {
+   //    this.setState({
+   //      input2: input2
+   //    });
+   //    console.log("Input changed", input2);
+   //  };
   
-    onKeyPress2 = button2 => {
-      console.log("Button pressed", button2);
-      if (button2 === "{shift}" || button2 === "{lock}") this.handleShift2();
-    };
+   //  onKeyPress2 = button2 => {
+   //    console.log("Button pressed", button2);
+   //    if (button2 === "{shift}" || button2 === "{lock}") this.handleShift2();
+   //  };
   
-    handleShift2 = () => {
-      let layoutName2 = this.state.layoutName2;
-      this.setState({
-        layoutName2: layoutName2 === "default" ? "shift" : "default"
-      });
-    };
+   //  handleShift2 = () => {
+   //    let layoutName2 = this.state.layoutName2;
+   //    this.setState({
+   //      layoutName2: layoutName2 === "default" ? "shift" : "default"
+   //    });
+   //  };
   
    //  onChangeInput2 = event2 => {
    //    let input2 = event2.target.value;
@@ -45,16 +74,19 @@ class Datalist extends React.Component {
    add = () => {
       // document.getElementById('keys').style.display = "none"
       var e = document.getElementById("itemName")
-      if(!this.state.cart.includes(e.value))
+      if(!this.state.cart.includes(e.value) && (e.value))
          this.state.cart.push(e.value)
       this.props.getCart(this.state.cart)
+      this.props.getData(this.state.data)
       console.log(this.state.cart.length)
       e.value = ""
    }
-   showKeyboard2(){
-      document.getElementById('keys').style.display = "initial"
-   }
+   // showKeyboard2(){
+   //    document.getElementById('keys').style.display = "initial"
+   // }
    render() {
+      this.getProductNames()
+      const { productNames } = this.state
       return (
          <div className="datalist">
             <input 
@@ -68,7 +100,9 @@ class Datalist extends React.Component {
                // onFocus={this.showKeyboard2}
             />
             <datalist id="data">
-               {this.state.data.map((item) =>
+               {productNames.length <=0
+                  ? 'No data'
+                  : productNames.map((item) =>
                   <option value={item} />
                )}
             </datalist>
