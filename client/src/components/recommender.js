@@ -47,7 +47,7 @@ class Recommender extends React.Component {
     render() {
         const data = this.props.data
         const y = this.getUniqueIds()
-        console.log(y)
+        // console.log(y)
         // const { data } = this.state;
       return (
          <div className="recommender">

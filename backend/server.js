@@ -30,6 +30,11 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(logger("dev"));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 // this is our get method
 // this method fetches all available data in our database
@@ -41,6 +46,10 @@ router.get("/getData", (req, res) => {
   });
 });
 
+router.post("/getPath",(req,res) => {
+  console.log(req.body)
+  return res.send([0,1,2,3])
+})
 // this is our update method
 // this method overwrites existing data in our database
 // router.post("/updateData", (req, res) => {
