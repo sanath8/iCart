@@ -1,0 +1,417 @@
+{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "intent": "greet",
+        "entities": [
+          {
+            "start": 0,
+            "end": 2,
+            "value": "hi",
+            "entity": "greeting"
+          }
+        ],
+        "text": "hi, my name is bot"
+      },
+      {
+        "intent": "greet",
+        "entities": [
+          {
+            "start": 0,
+            "end": 3,
+            "value": "hey",
+            "entity": "greeting"
+          }
+        ],
+        "text": "hey, i am bot"
+      },
+      {
+        "intent": "bye",
+        "text": "goodbye"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 10,
+            "end": 15,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want an apple"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 7,
+            "end": 12,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want apple"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 7,
+            "end": 12,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want apple"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 10,
+            "end": 15,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want an apple"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 7,
+            "end": 12,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want apple"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 7,
+            "end": 12,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want apple"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 10,
+            "end": 15,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want an apple"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 7,
+            "end": 12,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want apple"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 7,
+            "end": 12,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want apple"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 10,
+            "end": 15,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want an apple"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 7,
+            "end": 12,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want apple"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 7,
+            "end": 12,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want apple"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 10,
+            "end": 15,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want an apple"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 7,
+            "end": 12,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want apple"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 7,
+            "end": 12,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want apple"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 10,
+            "end": 15,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want an apple"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 7,
+            "end": 12,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want apple"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 7,
+            "end": 12,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want apple"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 9,
+            "end": 14,
+            "value": "fruit",
+            "entity": "item"
+          }
+        ],
+        "text": "i want a fruit"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 9,
+            "end": 14,
+            "value": "fruit",
+            "entity": "item"
+          }
+        ],
+        "text": "i want a fruit"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 9,
+            "end": 14,
+            "value": "fruit",
+            "entity": "item"
+          }
+        ],
+        "text": "i want a fruit"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 16,
+            "end": 21,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i would have an apple"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 16,
+            "end": 21,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i would have an apple"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 16,
+            "end": 21,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i would have an apple"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 16,
+            "end": 21,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i would have an apple"
+      },
+      {
+        "intent": "greet",
+        "entities": [
+          {
+            "start": 0,
+            "end": 2,
+            "value": "hi",
+            "entity": "greeting"
+          }
+        ],
+        "text": "hi"
+      },
+      {
+        "intent": "greet",
+        "entities": [
+          {
+            "start": 0,
+            "end": 3,
+            "value": "hey",
+            "entity": "greeting"
+          }
+        ],
+        "text": "hey, I am Mr Bot"
+      },
+      {
+        "intent": "bye",
+        "text": "goodbye"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 10,
+            "end": 15,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want an apple"
+      },
+      {
+        "intent": "greet",
+        "entities": [
+          {
+            "start": 0,
+            "end": 2,
+            "value": "hi",
+            "entity": "greeting"
+          }
+        ],
+        "text": "hi"
+      },
+      {
+        "intent": "greet",
+        "entities": [
+          {
+            "start": 0,
+            "end": 3,
+            "value": "hey",
+            "entity": "greeting"
+          }
+        ],
+        "text": "hey"
+      },
+      {
+        "intent": "bye",
+        "text": "goodbye"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 10,
+            "end": 15,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want an apple"
+      }
+    ],
+    "regex_features": [],
+    "lookup_tables": [],
+    "entity_synonyms": []
+  }
+}

@@ -20,7 +20,7 @@ class RestaurantAPI(object):
         return "papi's pizza place"
 
 
-def train_dialogue(domain_file="restaurant_domain.yml",
+def train_dialogue(domain_file="shop_domain.yml",
                    model_path="models/dialogue",
                    training_data_file="data/babi_stories.md"):
 

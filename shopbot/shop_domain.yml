@@ -1,9 +1,12 @@
 slots:
-  items:
+  item:
+    type: text
+  greeting:
     type: text
 
 entities:
  - item
+ - greeting
 
 intents:
  - greet
@@ -24,4 +27,5 @@ actions:
 - utter_greet
 - utter_goodbye
 - utter_on_it
+- actions_greet
 - actions_search_item

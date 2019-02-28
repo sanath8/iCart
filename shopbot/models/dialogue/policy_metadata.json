@@ -1,7 +1,20 @@
 {
   "action_fingerprints": {
     "action_listen": {
-      "slots": []
+      "slots": [
+        "item",
+        "greeting"
+      ]
+    },
+    "utter_greet": {
+      "slots": [
+        "greeting"
+      ]
+    },
+    "utter_on_it": {
+      "slots": [
+        "item"
+      ]
     },
     "utter_goodbye": {
       "slots": []

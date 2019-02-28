@@ -4,11 +4,13 @@ actions:
 - utter_greet
 - utter_goodbye
 - utter_on_it
+- actions_greet
 - actions_search_item
 config:
   store_entities_as_slots: true
 entities:
 - item
+- greeting
 intents:
 - greet:
     use_entities: true
@@ -17,7 +19,10 @@ intents:
 - bye:
     use_entities: true
 slots:
-  items:
+  greeting:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  item:
     initial_value: null
     type: rasa_core.slots.TextSlot
 templates:
