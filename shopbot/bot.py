@@ -32,7 +32,7 @@ def train_dialogue(domain_file="shop_domain.yml",
     training_data = agent.load_data(training_data_file)
     agent.train(
             training_data,
-            epochs=4000,
+            epochs=2000,
             batch_size=100,
             validation_split=0.2
     )

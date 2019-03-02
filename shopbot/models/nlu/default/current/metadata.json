@@ -69,14 +69,9 @@
             "name": "ner_crf",
             "classifier_file": "crf_model.pkl",
             "class": "rasa_nlu.extractors.crf_entity_extractor.CRFEntityExtractor"
-        },
-        {
-            "name": "ner_synonyms",
-            "synonyms_file": "entity_synonyms.json",
-            "class": "rasa_nlu.extractors.entity_synonyms.EntitySynonymMapper"
         }
     ],
     "training_data": "training_data.json",
-    "trained_at": "20190228-175234",
+    "trained_at": "20190301-201259",
     "rasa_nlu_version": "0.13.7"
 }

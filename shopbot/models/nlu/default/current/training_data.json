@@ -3,411 +3,131 @@
     "common_examples": [
       {
         "intent": "greet",
-        "entities": [
-          {
-            "start": 0,
-            "end": 2,
-            "value": "hi",
-            "entity": "greeting"
-          }
-        ],
-        "text": "hi, my name is bot"
-      },
-      {
-        "intent": "greet",
-        "entities": [
-          {
-            "start": 0,
-            "end": 3,
-            "value": "hey",
-            "entity": "greeting"
-          }
-        ],
-        "text": "hey, i am bot"
-      },
-      {
-        "intent": "bye",
-        "text": "goodbye"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 10,
-            "end": 15,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i want an apple"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 7,
-            "end": 12,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i want apple"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 7,
-            "end": 12,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i want apple"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 10,
-            "end": 15,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i want an apple"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 7,
-            "end": 12,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i want apple"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 7,
-            "end": 12,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i want apple"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 10,
-            "end": 15,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i want an apple"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 7,
-            "end": 12,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i want apple"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 7,
-            "end": 12,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i want apple"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 10,
-            "end": 15,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i want an apple"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 7,
-            "end": 12,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i want apple"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 7,
-            "end": 12,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i want apple"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 10,
-            "end": 15,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i want an apple"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 7,
-            "end": 12,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i want apple"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 7,
-            "end": 12,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i want apple"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 10,
-            "end": 15,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i want an apple"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 7,
-            "end": 12,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i want apple"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 7,
-            "end": 12,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i want apple"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 9,
-            "end": 14,
-            "value": "fruit",
-            "entity": "item"
-          }
-        ],
-        "text": "i want a fruit"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 9,
-            "end": 14,
-            "value": "fruit",
-            "entity": "item"
-          }
-        ],
-        "text": "i want a fruit"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 9,
-            "end": 14,
-            "value": "fruit",
-            "entity": "item"
-          }
-        ],
-        "text": "i want a fruit"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 16,
-            "end": 21,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i would have an apple"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 16,
-            "end": 21,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i would have an apple"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 16,
-            "end": 21,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i would have an apple"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 16,
-            "end": 21,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "i would have an apple"
-      },
-      {
-        "intent": "greet",
-        "entities": [
-          {
-            "start": 0,
-            "end": 2,
-            "value": "hi",
-            "entity": "greeting"
-          }
-        ],
         "text": "hi"
       },
       {
-        "intent": "greet",
-        "entities": [
-          {
-            "start": 0,
-            "end": 3,
-            "value": "hey",
-            "entity": "greeting"
-          }
-        ],
-        "text": "hey, I am Mr Bot"
-      },
-      {
-        "intent": "bye",
-        "text": "goodbye"
-      },
-      {
         "intent": "inform",
         "entities": [
           {
-            "start": 10,
-            "end": 15,
+            "start": 7,
+            "end": 12,
             "value": "apple",
             "entity": "item"
           }
         ],
-        "text": "i want an apple"
+        "text": "i want apple"
+      },
+      {
+        "intent": "confirm",
+        "text": "yeah"
       },
       {
         "intent": "greet",
-        "entities": [
-          {
-            "start": 0,
-            "end": 2,
-            "value": "hi",
-            "entity": "greeting"
-          }
-        ],
-        "text": "hi"
-      },
-      {
-        "intent": "greet",
-        "entities": [
-          {
-            "start": 0,
-            "end": 3,
-            "value": "hey",
-            "entity": "greeting"
-          }
-        ],
         "text": "hey"
       },
       {
-        "intent": "bye",
-        "text": "goodbye"
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 9,
+            "end": 14,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "you have apple?"
+      },
+      {
+        "intent": "inform",
+        "text": "ok"
       },
       {
         "intent": "inform",
         "entities": [
           {
             "start": 10,
-            "end": 15,
+            "end": 16,
+            "value": "fruits",
+            "entity": "item"
+          }
+        ],
+        "text": "where are fruits?"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 10,
+            "end": 18,
             "value": "apple",
             "entity": "item"
           }
         ],
-        "text": "i want an apple"
+        "text": "are there bannanas?"
+      },
+      {
+        "intent": "greet",
+        "text": "hi"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 7,
+            "end": 12,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want apple"
+      },
+      {
+        "intent": "confirm",
+        "text": "yeah"
+      },
+      {
+        "intent": "greet",
+        "text": "hey"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 9,
+            "end": 14,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "you have apple?"
+      },
+      {
+        "intent": "inform",
+        "text": "ok"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 10,
+            "end": 16,
+            "value": "fruits",
+            "entity": "item"
+          }
+        ],
+        "text": "where are fruits?"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 10,
+            "end": 18,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "are there bannanas?"
       }
     ],
     "regex_features": [],

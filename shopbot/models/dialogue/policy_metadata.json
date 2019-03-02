@@ -2,13 +2,7 @@
   "action_fingerprints": {
     "action_listen": {
       "slots": [
-        "item",
-        "greeting"
-      ]
-    },
-    "utter_greet": {
-      "slots": [
-        "greeting"
+        "item"
       ]
     },
     "utter_on_it": {
@@ -16,7 +10,10 @@
         "item"
       ]
     },
-    "utter_goodbye": {
+    "utter_anything_else": {
+      "slots": []
+    },
+    "utter_greet": {
       "slots": []
     }
   },

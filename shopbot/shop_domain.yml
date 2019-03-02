@@ -6,12 +6,12 @@ slots:
 
 entities:
  - item
- - greeting
 
 intents:
  - greet
  - inform
  - bye
+ - confirm
 templates:
   utter_greet:
     - "hey there! how can I help you"
@@ -20,6 +20,8 @@ templates:
     - "Bye-bye"
   utter_on_it:
     - "I'm on it"
+  utter_anything_else:
+    - "Anything else ?"
 
 
 
@@ -27,5 +29,5 @@ actions:
 - utter_greet
 - utter_goodbye
 - utter_on_it
-- actions_greet
+- utter_anything_else
 - actions_search_item

@@ -7,10 +7,8 @@ class ActionSearchItem(Action):
         return 'actions_search_item'
 
     def run(self, dispatcher, tracker, domain):
-        dispatcher.utter_message("Yes, we do have them in our stock. Would you like to see the location for ")#, tracker.get_slot("item"))
-        print(tracker.slots)
-        dispatcher.utter_message(tracker.get_slot("item"))
-        dispatcher.utter_message(" ?")
+        msg = "Yes, we do have them in our stock. Would you like to see the location for " + tracker.get_slot("item") + " ?"
+        dispatcher.utter_message(msg)
         return []
 
 """class ActionSearchRestaurants(Action):

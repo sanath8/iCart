@@ -1,10 +1,10 @@
 {
   "states": [
     "intent_bye",
+    "intent_confirm",
     "intent_greet",
     "intent_inform",
     "entity_item",
-    "entity_greeting",
     "slot_greeting_0",
     "slot_item_0",
     "prev_action_listen",
@@ -13,7 +13,7 @@
     "prev_utter_greet",
     "prev_utter_goodbye",
     "prev_utter_on_it",
-    "prev_actions_greet",
+    "prev_utter_anything_else",
     "prev_actions_search_item"
   ]
 }
