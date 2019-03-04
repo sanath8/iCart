@@ -31,3 +31,4 @@ actions:
 - utter_on_it
 - utter_anything_else
 - actions_search_item
+- actions_locate_item

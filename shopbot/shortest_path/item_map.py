@@ -1,11 +1,11 @@
 class ItemMapping:
     def __init__(self):
         self.item_index_map = {
-                                "fruits":0,
+                                "furniture":0,
                                 "sports":1,
                                 "cloths":2,
                                 "electronics":3,
-                                "furniture":4,
+                                "apple":4,
                                 "utensils":5,
                                 "sanitory":6
                               }

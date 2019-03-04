@@ -5,15 +5,15 @@
         "item"
       ]
     },
+    "utter_greet": {
+      "slots": []
+    },
     "utter_on_it": {
       "slots": [
         "item"
       ]
     },
     "utter_anything_else": {
-      "slots": []
-    },
-    "utter_greet": {
       "slots": []
     }
   },

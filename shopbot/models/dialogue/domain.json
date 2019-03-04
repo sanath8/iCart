@@ -14,6 +14,7 @@
     "prev_utter_goodbye",
     "prev_utter_on_it",
     "prev_utter_anything_else",
-    "prev_actions_search_item"
+    "prev_actions_search_item",
+    "prev_actions_locate_item"
   ]
 }

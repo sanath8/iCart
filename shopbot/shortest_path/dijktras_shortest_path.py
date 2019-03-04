@@ -1,5 +1,5 @@
-from graph import *
-from item_map import *
+from shortest_path.graph import *
+from shortest_path.item_map import *
 class DijkstraAlgo:
     def __init__(self, graph):
         self.graph = graph
@@ -51,7 +51,6 @@ class DijkstraAlgo:
                 if(eachNeighbour[0] not in self.visited):
                     self.matrix[rowCounter+1][eachNeighbour[0]] = min(self.matrix[rowCounter][eachNeighbour[0]], self.matrix[rowCounter][currNode] + eachNeighbour[1])
             rowCounter += 1
-        self.printTrackingMatrix()
 
     def getPath(self, destination):
         temp = destination
@@ -64,10 +63,3 @@ class DijkstraAlgo:
                 temp = self.matrix[pointer - 1][self.numNodes]
             pointer -= 1
         return path[::-1]
-
-
-
-graph = Graph(0)
-dijk = DijkstraAlgo(graph.getGraph())
-dijk.run(0)
-print(dijk.getPath(ItemMapping().getItemId("furniture")))
