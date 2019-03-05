@@ -21,7 +21,7 @@ class Recommender extends React.Component {
         return unique_random_numbers
     }
     render() {
-        const data = this.props.data
+        const { data } = this.props;
         const y = this.getUniqueIds()
         // console.log(y)
         // const { data } = this.state;

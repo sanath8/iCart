@@ -35,18 +35,18 @@ class Chatbot extends React.Component {
       });
     };
   
-   //  onChangeInput = event => {
-   //    let input = event.target.value;
-   //    console.log(input)
-   //    this.setState(
-   //      {
-   //        input: input
-   //      },
-   //      () => {
-   //        this.keyboard.setInput(input);
-   //      }
-   //    );      
-   //  };
+    onChangeInput = event => {
+      let input = event.target.value;
+      // console.log(input)
+      this.setState(
+        {
+          input: input
+        },
+        () => {
+          this.keyboard.setInput(input);
+        }
+      );      
+    };
 
    sendMessage = () => {
       document.getElementById('keyBoard').style.display = "none"
@@ -56,24 +56,20 @@ class Chatbot extends React.Component {
                         ${postContent.value}
                      </div>`;
       postContainer.innerHTML=postContainer.innerHTML+myPost;
-      let replyContent = postContent.value
       getReply(postContent.value).then(res =>{
-         this.setState({
-            replyContent: res.data
-         })
-         console.log(res.data)
-         replyContent = postContent.value
-         console.log(res.data)
+         if(res)
+            this.setState({
+               replyContent: res
+            })
+         postContent.value='';
+         var replyPost = `<div class="replyBody">
+            ${this.state.replyContent}
+         </div>`;
+         postContainer.innerHTML=postContainer.innerHTML+replyPost;
+         postContent.value='';
+         // this.state = this.initialState;
+         this.keyboard.setInput("");
       })
-      console.log(replyContent)
-      postContent.value='';
-      var replyPost = `<div class="replyBody">
-         ${this.state.replyContent}
-      </div>`;
-      postContainer.innerHTML=postContainer.innerHTML+replyPost;
-      postContent.value='';
-      // this.state = this.initialState;
-      this.keyboard.setInput("");
       // console.log(this.state.input)
    }
    showKeyboard(){
@@ -96,7 +92,7 @@ class Chatbot extends React.Component {
                   placeholder={"Tap on the virtual keyboard to start"}
                   onChange={e => this.onChangeInput(e)}
                   onFocus={this.showKeyboard}
-                  // onBlur={this.hideKeyboard}
+                  // onBlur={this.hideKeyboard} 
                >
                </textarea>
                <button className="msgSubmit" onClick={this.sendMessage}>></button>
