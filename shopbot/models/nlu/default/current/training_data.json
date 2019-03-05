@@ -1,0 +1,137 @@
+{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "intent": "greet",
+        "text": "hi"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 7,
+            "end": 12,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want apple"
+      },
+      {
+        "intent": "confirm",
+        "text": "yeah"
+      },
+      {
+        "intent": "greet",
+        "text": "hey"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 9,
+            "end": 14,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "you have apple?"
+      },
+      {
+        "intent": "inform",
+        "text": "ok"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 10,
+            "end": 16,
+            "value": "fruits",
+            "entity": "item"
+          }
+        ],
+        "text": "where are fruits?"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 10,
+            "end": 18,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "are there bannanas?"
+      },
+      {
+        "intent": "greet",
+        "text": "hi"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 7,
+            "end": 12,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "i want apple"
+      },
+      {
+        "intent": "confirm",
+        "text": "yeah"
+      },
+      {
+        "intent": "greet",
+        "text": "hey"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 9,
+            "end": 14,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "you have apple?"
+      },
+      {
+        "intent": "inform",
+        "text": "ok"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 10,
+            "end": 16,
+            "value": "fruits",
+            "entity": "item"
+          }
+        ],
+        "text": "where are fruits?"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 10,
+            "end": 18,
+            "value": "apple",
+            "entity": "item"
+          }
+        ],
+        "text": "are there bannanas?"
+      }
+    ],
+    "regex_features": [],
+    "lookup_tables": [],
+    "entity_synonyms": []
+  }
+}
