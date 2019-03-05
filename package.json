@@ -1,0 +1,24 @@
+{
+  "name": "iCart",
+  "version": "1.0.0",
+  "description": "![screenshot from 2018-12-23 16-00-02](https://user-images.githubusercontent.com/21198781/50382737-398abf00-06cc-11e9-8a3e-de29fbf1c02d.png)",
+  "main": "index.js",
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "concurrently \"cd backend && node server.js\" \"cd client && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanath8/iCart.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sanath8/iCart/issues"
+  },
+  "homepage": "https://github.com/sanath8/iCart#readme"
+}
