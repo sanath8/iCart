@@ -1,28 +1,23 @@
 import React from 'react';
 import './../css/main.css';
-import axios from "axios";
-// function getUniqueIds(){
-//     var limit = 5, lower_bound = 0, upper_bound = 5, unique_random_numbers = [];
-//     while (unique_random_numbers.length < limit) {
-//         var random_number = Math.floor(Math.random()*(upper_bound - lower_bound) + lower_bound);
-//         if (unique_random_numbers.indexOf(random_number) === -1) { 
-//             unique_random_numbers.push( random_number );
-//         }
-//     }
-//     return unique_random_numbers
-// }
+import {getPath} from '../apis/getPath';
 
 const nodes = [{x:50,y:25},{x:125,y:25},{x:200,y:25},{x:200,y:75},{x:125,y:75},{x:50,y:75}]
-const path = [5, 0, 1, 4, 3]
-// const path = setInterval(getUniqueIds()
 
 class Graph extends React.Component {
     state = {
         intervalIsSet: false,
+        path: []
     };
     componentDidMount() {
-        this.getPathFromDb();
+        getPath().then(res =>{
+            this.setState({
+                path: res.data
+            })
+            console.log(res.data)
+        })
         this.updateCanvas();
+        setTimeout(this.updateCanvas,1000)
         if (!this.state.intervalIsSet) {
             let interval = setInterval(this.updateCanvas, 10000);
             this.setState({ intervalIsSet: interval });
@@ -34,13 +29,7 @@ class Graph extends React.Component {
             this.setState({ intervalIsSet: null });
         }
     }
-    getPathFromDb = () => {
-        axios.post("http://localhost:3001/api/getPath",{source:0,data:[1,3]})
-        .then(res => console.log(res.data))
-        // .then(data => data.json())
-        // .then(res => this.setState({ data: res.data }))
-        .catch(err => console.log(err));
-    };
+
     updateCanvas = () => {
         const ctx = this.refs.canvas.getContext('2d');
         for( var i=0; i<6; i++){
@@ -65,7 +54,8 @@ class Graph extends React.Component {
         ctx.stroke()
 
         ctx.beginPath();
-        ctx.strokeStyle = "red"
+        ctx.strokeStyle = "red";
+        const {path} = this.state;
         for(i=0; i < path.length-1; i++){
             ctx.moveTo(nodes[path[i]].x+2.5, nodes[path[i].y+2.5])
             ctx.lineTo(nodes[path[i+1]].x+2.5, nodes[path[i+1]].y+2.5)

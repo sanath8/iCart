@@ -2,44 +2,38 @@ import React from 'react';
 import './../css/main.css';
 // import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
+import {getDataFromDb} from '../apis/getData';
 
 class Datalist extends React.Component {
-   state = {
-      // data: ['oreo','shampoo','lays','shoe'],
-      data: [],
-      productNames: [],
-      cart: [],
-      layoutName2: "default",
-      input2: ""
+   constructor(props){
+      super(props);
+      this.state = {
+         // data: ['oreo','shampoo','lays','shoe'],
+         data: [],
+         productNames: [],
+         cart: [],
+         layoutName2: "default",
+         input2: ""
+      }
    }
-   
    componentDidMount() {
-         this.getDataFromDb();
-         // if (!this.state.intervalIsSet) {
-         //     let interval = setInterval(this.getDataFromDb, 10000);
-         //     this.setState({ intervalIsSet: interval });
-         // }
-         // console.log(this.state.data);
+      getDataFromDb().then(res =>{
+         this.setState({
+            data: res.data
+         })
+      })
+      setTimeout(() => {
+         this.props.getData(this.state.data)
+      },1000)
    }
 
-   componentWillUnmount() {
-         // if (this.state.intervalIsSet) {
-         //    clearInterval(this.state.intervalIsSet);
-         //    this.setState({ intervalIsSet: null });
-         // }
-   }
-   getDataFromDb = () => {
-         fetch("http://localhost:3001/api/getData")
-         .then(data => data.json())
-         .then(res => this.setState({ data: res.data }))
-         .catch(err => console.log(err));
-   };
    getProductNames = () => {
       this.state.data.forEach(element => {
          if(!this.state.productNames.includes(element.productName))
          this.state.productNames.push(element.productName)
       })
    }
+   
    // onChange2 = input2 => {
    //    this.setState({
    //      input2: input2
@@ -71,6 +65,7 @@ class Datalist extends React.Component {
    //    );
    //    console.log("came here")
    //  };
+   
    add = () => {
       // document.getElementById('keys').style.display = "none"
       var e = document.getElementById("itemName")
@@ -81,9 +76,11 @@ class Datalist extends React.Component {
       console.log(this.state.cart.length)
       e.value = ""
    }
+   
    // showKeyboard2(){
    //    document.getElementById('keys').style.display = "initial"
    // }
+   
    render() {
       this.getProductNames()
       const { productNames } = this.state

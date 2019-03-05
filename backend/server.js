@@ -48,7 +48,12 @@ router.get("/getData", (req, res) => {
 
 router.post("/getPath",(req,res) => {
   console.log(req.body)
-  return res.send([0,1,2,3])
+  return res.send([5,0,1,4,3])
+})
+
+router.post("/getReply",(req,res) => {
+  console.log(req.body.query)
+  return res.send("hello")
 })
 // this is our update method
 // this method overwrites existing data in our database

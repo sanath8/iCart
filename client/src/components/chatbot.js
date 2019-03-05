@@ -3,20 +3,17 @@ import Datalist from'./datalist';
 import './../css/main.css';
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
+import {getReply} from '../apis/getReply';
 
 class Chatbot extends React.Component {
-   state = {
-      layoutName: "default",
-      input: ""
-    };
-   // constructor(props) {
-   //    super(props);
-   //    this.initialState = {
-   //       layoutName: "default",
-   //       input: ""
-   //    };
-   //    this.state = this.initialState;
-   // }
+   constructor(props){
+      super(props);
+      this.state = {
+         layoutName: "default",
+         input: "",
+         replyContent:""
+       };
+   }
   
     onChange = input => {
       this.setState({
@@ -59,10 +56,19 @@ class Chatbot extends React.Component {
                         ${postContent.value}
                      </div>`;
       postContainer.innerHTML=postContainer.innerHTML+myPost;
-      var replyContent = postContent.value;
+      let replyContent = postContent.value
+      getReply(postContent.value).then(res =>{
+         this.setState({
+            replyContent: res.data
+         })
+         console.log(res.data)
+         replyContent = postContent.value
+         console.log(res.data)
+      })
+      console.log(replyContent)
       postContent.value='';
       var replyPost = `<div class="replyBody">
-         ${replyContent}
+         ${this.state.replyContent}
       </div>`;
       postContainer.innerHTML=postContainer.innerHTML+replyPost;
       postContent.value='';
