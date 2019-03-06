@@ -1,52 +1,19 @@
 import React from 'react';
-import Datalist from'./datalist';
 import './../css/main.css';
-import Keyboard from "react-simple-keyboard";
+import Datalist from'./datalist';
+import KeyBoard from "./keyboard"
 import "react-simple-keyboard/build/css/index.css";
 import {getReply} from '../apis/getReply';
 
 class Chatbot extends React.Component {
    constructor(props){
       super(props);
+      this.keyboard = React.createRef();
       this.state = {
-         layoutName: "default",
          input: "",
          replyContent:[]
        };
    }
-  
-    onChange = input => {
-      this.setState({
-        input: input
-      });
-      // console.log("Input changed", input);
-    };
-  
-    onKeyPress = button => {
-      // console.log("Button pressed", button);
-      if (button === "{shift}" || button === "{lock}") this.handleShift();
-    };
-  
-    handleShift = () => {
-      let layoutName = this.state.layoutName;
-  
-      this.setState({
-        layoutName: layoutName === "default" ? "shift" : "default"
-      });
-    };
-  
-    onChangeInput = event => {
-      let input = event.target.value;
-      // console.log(input)
-      this.setState(
-        {
-          input: input
-        },
-        () => {
-          this.keyboard.setInput(input);
-        }
-      );      
-    };
 
    sendMessage = () => {
       document.getElementById('keyBoard').style.display = "none"
@@ -59,31 +26,33 @@ class Chatbot extends React.Component {
       getReply(postContent.value).then(res =>{
          if(res)
             this.setState({
-               replyContent: res
+               replyContent: res,
             })
-         // postContent.value='';
+         postContent.value='';
          for(var i=0; i<this.state.replyContent.length;i++){
             var replyPost = `<div class="replyBody">
                ${this.state.replyContent[i]}
             </div>`;
             postContainer.innerHTML=postContainer.innerHTML+replyPost;
          }
-         // var replyPost = `<div class="replyBody">
-         //    ${this.state.replyContent}
-         // </div>`;
-         // postContainer.innerHTML=postContainer.innerHTML+replyPost;
-         postContent.value='';
-         // this.state = this.initialState;
-         this.keyboard.setInput("");
+         this.keyboard.current.setInput("");
       })
-      // console.log(this.state.input)
    }
+
    showKeyboard(){
       document.getElementById('keyBoard').style.display = "initial"
    }
+
    hideKeyboard(){
       document.getElementById('keyBoard').style.display = "none"
    }
+
+   getInput = (input) => {
+      this.setState({
+         input: input
+      })
+   }
+
    render() {
       return (
          <div className="chatbot">
@@ -96,7 +65,7 @@ class Chatbot extends React.Component {
                   id='myPost'
                   value={this.state.input}
                   placeholder={"Tap on the virtual keyboard to start"}
-                  onChange={e => this.onChangeInput(e)}
+                  // onChange={e => this.onChangeInput(e)}
                   onFocus={this.showKeyboard}
                   // onBlur={this.hideKeyboard} 
                >
@@ -104,16 +73,16 @@ class Chatbot extends React.Component {
                <button className="msgSubmit" onClick={this.sendMessage}>></button>
             </div>
             <div id="keyBoard" className='keyboard' style={{display: "none"}}>
-               <Keyboard
-                  style={{margin: 0}}
-                  ref={r => (this.keyboard = r)}
-                  layoutName={this.state.layoutName}
-                  onChange={input => this.onChange(input)}
-                  onKeyPress={button => this.onKeyPress(button)}
+               <KeyBoard
+                  ref={this.keyboard}
+                  getInput={this.getInput}
+                  inputName={"input"}
+                  // baseClass = {"keyboard"}
                />
             </div>
          </div>
       );
    }
 }
+
 export default Chatbot;

@@ -10,7 +10,7 @@ class CartList extends React.Component {
                 Items in the cart
                 {
                     cart.map((item) => (
-                        <li>
+                        <li key={item}>
                             {item}
                         </li>
                     ))
@@ -20,4 +20,5 @@ class CartList extends React.Component {
       );
    }
 }
+
 export default CartList;
