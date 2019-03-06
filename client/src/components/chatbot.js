@@ -11,7 +11,7 @@ class Chatbot extends React.Component {
       this.state = {
          layoutName: "default",
          input: "",
-         replyContent:""
+         replyContent:[]
        };
    }
   
@@ -61,11 +61,17 @@ class Chatbot extends React.Component {
             this.setState({
                replyContent: res
             })
-         postContent.value='';
-         var replyPost = `<div class="replyBody">
-            ${this.state.replyContent}
-         </div>`;
-         postContainer.innerHTML=postContainer.innerHTML+replyPost;
+         // postContent.value='';
+         for(var i=0; i<this.state.replyContent.length;i++){
+            var replyPost = `<div class="replyBody">
+               ${this.state.replyContent[i]}
+            </div>`;
+            postContainer.innerHTML=postContainer.innerHTML+replyPost;
+         }
+         // var replyPost = `<div class="replyBody">
+         //    ${this.state.replyContent}
+         // </div>`;
+         // postContainer.innerHTML=postContainer.innerHTML+replyPost;
          postContent.value='';
          // this.state = this.initialState;
          this.keyboard.setInput("");

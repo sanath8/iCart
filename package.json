@@ -8,7 +8,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "concurrently \"cd backend && node server.js\" \"cd client && npm start\""
+    "start": "concurrently \"cd backend && nodemon server.js\" \"cd client && npm start\""
   },
   "repository": {
     "type": "git",
