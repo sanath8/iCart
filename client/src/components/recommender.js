@@ -32,7 +32,7 @@ class Recommender extends React.Component {
                     :data.filter((e)=>{
                         return y.includes(e.id)
                      }).map(dat => (
-                     <div className="item">
+                     <div className="item" key={dat.id}>
                         <img src={require('../images/'+dat.productName+'.jpg')} alt="hs"></img>
                         <div className="details">
                             <label>Name: {dat.productName}</label><br></br>

@@ -100,7 +100,7 @@ class Datalist extends React.Component {
                {productNames.length <=0
                   ? 'No data'
                   : productNames.map((item) =>
-                  <option value={item} />
+                  <option key={item} value={item} />
                )}
             </datalist>
             <button className="itemAdd" onClick={this.add}>Add</button>
