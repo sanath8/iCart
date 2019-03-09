@@ -65,6 +65,7 @@ class Chatbot extends React.Component {
                   id='myPost'
                   value={this.state.input}
                   placeholder={"Tap on the virtual keyboard to start"}
+                  onChange={e => {}}
                   // onChange={e => this.onChangeInput(e)}
                   onFocus={this.showKeyboard}
                   // onBlur={this.hideKeyboard} 

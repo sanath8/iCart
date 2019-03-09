@@ -23,7 +23,9 @@ class KeyBoard extends React.Component {
   
     onKeyPress = button => {
       // console.log("Button pressed", button);
-      if (button === "{shift}" || button === "{lock}") this.handleShift();
+      if (button === "{shift}") this.handleShift();
+      else if (button === "{num}") this.setState({layoutName: "num"});
+      else if (button === "{abc}") this.setState({layoutName: "default"});
     };
   
     handleShift = () => {
@@ -32,19 +34,6 @@ class KeyBoard extends React.Component {
         layoutName: layoutName === "default" ? "shift" : "default"
       });
     };
-  
-    // onChangeInput = event => {
-    //   let input = event.target.value;
-    //   // console.log(input)
-    //   this.setState(
-    //     {
-    //       input: input
-    //     },
-    //     () => {
-    //       this.keyboard.setInput(input);
-    //     }
-    //   );      
-    // };
 
     setInput = (input) => {
         this.setState({
@@ -55,6 +44,7 @@ class KeyBoard extends React.Component {
     }
 
    render() {
+     let pad = '\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0';
       return (
         <Keyboard
             baseClass = {this.props.baseClass}
@@ -62,6 +52,34 @@ class KeyBoard extends React.Component {
             ref={r => (this.keyboard = r)}
             inputName={this.props.inputName}
             layoutName={this.state.layoutName}
+            layout={{
+              default: [
+                "q w e r t y u i o p",
+                "a s d f g h j k l",
+                "{shift} z x c v b n m {bksp}",
+                "{num} , {space} . {enter}"
+              ],
+              shift: [
+                "Q W E R T Y U I O P",
+                "A S D F G H J K L",
+                "{shift} Z X C V B N M {bksp}",
+                "{num} , {space} . {enter}"
+              ],
+              num: [
+                "1 2 3 4 5 6 7 8 9 0",
+                "@ # \u20B9 & _ - ( ) = %",
+                "{shift} \" * ' : / ! ? + {bksp}",
+                "{abc} , {space} . {enter}"
+              ]
+            }}
+            display = {{
+              "{bksp}": "\u232B",
+              "{enter}": "\u23CE",
+              "{shift}": "\u2302",
+              "{space}" : pad+"\u2423"+pad,
+              "{num}" : "123",
+              "{abc}" : "abc"
+            }}
             onChange={input => this.onChange(input)}
             onKeyPress={button => this.onKeyPress(button)}
         />
