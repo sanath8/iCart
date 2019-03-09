@@ -1,0 +1,34 @@
+slots:
+  item:
+    type: text
+  greeting:
+    type: text
+
+entities:
+ - item
+
+intents:
+ - greet
+ - inform
+ - bye
+ - confirm
+templates:
+  utter_greet:
+    - "hey there! how can I help you"
+  utter_goodbye:
+    - "goodbye :("
+    - "Bye-bye"
+  utter_on_it:
+    - "I'm on it"
+  utter_anything_else:
+    - "Anything else ?"
+
+
+
+actions:
+- utter_greet
+- utter_goodbye
+- utter_on_it
+- utter_anything_else
+- actions_search_item
+- actions_locate_item
