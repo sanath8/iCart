@@ -170,17 +170,17 @@ label{
     margin: 0;
     font-size: 2vw;
 }
-@media only screen and (min-width: 540px){
+@media only screen and (min-width: 400px){
     .keyboard{
         width: 60vw;
     }
 }
-@media only screen and (max-width: 540px){
+@media only screen and (max-width: 400px){
     .keyboard{
-        width: 324px;
+        width: 240px;
     }
     .messageArea{
-        height: 47vh;
+        height: 53vh;
     }
 }
 @media only screen and (max-width: 450px){
@@ -190,21 +190,21 @@ label{
 }
 @media only screen and (max-height: 660px) {
     .keyboard{
-        height: 205px;
+        height: 175px;
     }
 }
-@media only screen and (max-height: 600px) and (max-width: 540px){
+@media only screen and (max-height: 600px) and (max-width: 400px){
     .messageArea{
-        height: 41vh;
+        height: 48vh;
     }
 }
-@media only screen and (max-height: 515px) and (max-width: 540px){
+@media only screen and (max-height: 530px) and (max-width: 400px){
     .messageArea{
-        height: 36vh;
+        height: 43vh;
     }
 }
-@media only screen and (max-height: 460px) and (max-width: 540px){
+@media only screen and (max-height: 460px) and (max-width: 400px){
     .messageArea{
-        height: 31vh;
+        height: 38vh;
     }
 }

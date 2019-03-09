@@ -63,6 +63,15 @@ class Datalist extends React.Component {
       })
    }
 
+   onChangeInput = event => {
+      let input = event.target.value;
+      this.setState({
+          input: input
+        },() => {
+          this.keyboard.current.setInput(input);
+      })
+    }
+
    render() {
       this.getProductNames()
       const { productNames } = this.state
@@ -75,7 +84,7 @@ class Datalist extends React.Component {
                list="data"
                placeholder="Search an item"
                value={this.state.input}
-               // onChange={e => this.onChangeInput(e)}
+               onChange={e => this.onChangeInput(e)}
                onFocus={this.showKeyboard}
             />
             <datalist id="data">
