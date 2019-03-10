@@ -1,6 +1,14 @@
 div{
     margin: 0;
 }
+label { 
+    display:block;
+    width:14vw;
+    word-wrap:break-word;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
 .header {
     width: 100vw;
     background-color:  #000000;

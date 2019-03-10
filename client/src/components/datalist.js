@@ -3,6 +3,7 @@ import './../css/main.css';
 import KeyBoard from "./keyboard"
 import "react-simple-keyboard/build/css/index.css";
 import {getDataFromDb} from '../apis/getData';
+import {getItemlist} from '../apis/getItemlist';
 
 class Datalist extends React.Component {
    constructor(props){
@@ -23,10 +24,11 @@ class Datalist extends React.Component {
          this.setState({
             data: res.data
          })
-      })
-      setTimeout(() => {
          this.props.getData(this.state.data)
-      },1000)
+      })
+      // setTimeout(() => {
+      //    this.props.getData(this.state.data)
+      // },5000)
    }
 
    getProductNames = () => {
@@ -58,8 +60,14 @@ class Datalist extends React.Component {
    }
 
    getInput = (input) => {
+      if(input.length)
+      getItemlist(input).then(res => {
+         this.setState({
+            productNames: res
+         })
+      })
       this.setState({
-         input: input
+         input: input,
       })
    }
 
@@ -73,7 +81,7 @@ class Datalist extends React.Component {
     }
 
    render() {
-      this.getProductNames()
+      // this.getProductNames()
       const { productNames } = this.state
       return (
          <div className="datalist">
