@@ -1,0 +1,8 @@
+here are the instructions on how to use this script
+in your python script do the following steps:
+    1. set the config information. There are 2 cases, if a similar face with phone number is logging in, or a new person is logging in
+        if a new person is logging in
+config.image_file_name = '/home/puneeth/Documents/Projects/iCart/image_processing/images/lomachenko.jpg'
+config.amazon_info['s3_bucket_name'] = 'developmentuserbucket'
+main_class = MainClass()
+main_class.run(type=MainClass.facial_analysis)
