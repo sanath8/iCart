@@ -9,6 +9,6 @@ class config:
         'maxFaces' : 2
     }
     user_info = {
-        'mobile_number' : '7353205544'
+        'mobile_number' : '7353205549'
     }
     number_of_users = 5

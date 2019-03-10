@@ -52,8 +52,6 @@ class MainClass:
         #collection only the 1st image
         self.face_id = response['FaceRecords'][0]['Face']['FaceId']
         print("face id is " + self.face_id)
-
-
     def run(self, type):
 
         self.upload_file_to_s3(config.image_file_name, config.image_file_name.split('/')[-1])# customize this to give key name
@@ -67,17 +65,17 @@ class MainClass:
         match_collection_ids = []
         print("response collection ids" + str(response_collection_ids))
         for collection_id in response_collection_ids:
-            try:
-                response = self.client.search_faces(CollectionId=collection_id,
-                                           FaceId=self.face_id,
+            # try:
+            response = self.client.search_faces_by_image(CollectionId=collection_id,
+                                           Image={'S3Object':{'Bucket':config.amazon_info['s3_bucket_name'],'Name':config.image_file_name.split('/')[-1]}},
                                            FaceMatchThreshold=config.search_faces['threshold'],
                                            MaxFaces=config.search_faces['maxFaces'])
-                faceMatches = response['FaceMatches']
-                print("face Matches for collection id " + collection_id + " " + faceMatches)
-                if len(faceMatches) != 0:
-                    match_collection_ids.append(collection_id)
-            except Exception:
-                print("Exception occured")
+            faceMatches = response['FaceMatches']
+            print("face Matches for collection id " + collection_id + " " + str(faceMatches))
+            if len(faceMatches) != 0:
+                match_collection_ids.append(collection_id)
+            # except Exception:
+            #     print("Exception occured ")
 
             #place this face photo into the respective collection
         #ideally the length of match_collection_ids should be 1 however if it is not we select the first one of them
@@ -86,10 +84,11 @@ class MainClass:
             selected_collection_id = match_collection_ids[0]
             if match_collection_ids[0] == 'stranger_collection':
                 selected_collection_id = match_collection_ids[1]
+            print("face recognized with phone number " + selected_collection_id)
             print("Deleting from stranger collection")
             self.client.delete_faces(CollectionId='stranger_collection',
                                      FaceIds=[self.face_id])
-            print("replacing the photo to collection_id" + collection_id)
+            print("replacing the photo to collection_id" + selected_collection_id)
             self.index_faces(selected_collection_id, config.image_file_name.split('/')[-1], config.amazon_info['s3_bucket_name'])
         elif len(match_collection_ids) == 1:
             if match_collection_ids[0] != 'stranger_collection':
@@ -118,7 +117,7 @@ class MainClass:
 
 
 
-config.image_file_name = '/home/puneeth/Documents/Projects/iCart/image_processing/images/lomachenko.jpg'
+config.image_file_name = '/home/puneeth/Documents/Projects/iCart/image_processing/images/boy.jpeg'
 config.amazon_info['s3_bucket_name'] = 'developmentuserbucket'
 main_class = MainClass()
 main_class.run(type=MainClass.facial_analysis)
