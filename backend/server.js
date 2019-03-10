@@ -4,10 +4,16 @@ const bodyParser = require("body-parser");
 const logger = require("morgan");
 const Data = require("./data");
 
+var facial_session_data = {
+  /*
+    this object is initialised and remains in memory till the server is running
+  */
+}
+
 const API_PORT = 3001;
 const app = express();
 const router = express.Router();
-
+const image_processing_router = express.Router()
 // this is our MongoDB database
 //const dbRoute = "mongodb://jelo:a9bc839993@ds151382.mlab.com:51382/jelotest";
 const dbRoute = "mongodb://sammed:_emZEiB8-xv54C3@cluster0-shard-00-00-ill3x.mongodb.net:27017,cluster0-shard-00-01-ill3x.mongodb.net:27017,cluster0-shard-00-02-ill3x.mongodb.net:27017/icart?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true";
@@ -55,6 +61,38 @@ router.post("/getReply",(req,res) => {
   console.log(req.body.query)
   return res.send("hello")
 })
+
+
+/* this is the image processing api section
+
+*/
+
+image_processing_router.get("/getMobileNumber", (req, res) => {
+  //return mobile number
+  //TODO write logic pick the phone number from frontend till here and push mobile Number
+  //dummy logic
+  var mobileNumber = "9456875457"
+  res.json({mobileNumber : mobileNumber})
+})
+
+image_processing_router.post("/postMobileNumber", (req, res) => {
+  console.log(req.body["mobileNumber"])
+  //TODO write logic to do required stuff with the mobile number recieved
+  res.end("success")
+})
+
+image_processing_router.post("/updateAgeAndGender", (req, res) => {
+  var mobileNumber = req.body.mobileNumber;
+  var age = req.body.age  ;
+  var gender = req.body.gender;
+  facial_session_data[mobileNumber] = {
+    'age' : age,
+    'gender' : gender
+  }
+  console.log("facial_session_data", facial_session_data)
+  res.end("success")
+})
+
 // this is our update method
 // this method overwrites existing data in our database
 // router.post("/updateData", (req, res) => {
@@ -72,7 +110,7 @@ router.post("/getReply",(req,res) => {
 //   Data.findOneAndDelete(id, err => {
 //     if (err) return res.send(err);
 //     return res.json({ success: true });
-//   });
+//   });get 
 // });
 
 // this is our create methid
@@ -98,6 +136,7 @@ router.post("/getReply",(req,res) => {
 
 // append /api for our http requests
 app.use("/api", router);
+app.use("/api/v1/image_processing", image_processing_router);
 
 // launch our backend into a port
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
