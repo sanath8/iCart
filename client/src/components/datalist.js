@@ -73,6 +73,13 @@ class Datalist extends React.Component {
 
    onChangeInput = event => {
       let input = event.target.value;
+      // console.log(event)
+      if(input.length)
+      getItemlist(input).then(res => {
+         this.setState({
+            productNames: res
+         })
+      })
       this.setState({
           input: input
         },() => {
