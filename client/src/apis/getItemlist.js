@@ -1,5 +1,6 @@
 export const getItemlist = (name) => {
-    return fetch("https://icartsystem.herokuapp.com/products?productName="+name)
+    // return fetch("https://icartsystem.herokuapp.com/products?productName="+name)
+    return fetch("http://localhost:3001/products?productName="+name)
     .then(data => data.json())
     .then(res => {
         let list=[]
@@ -9,5 +10,8 @@ export const getItemlist = (name) => {
         // console.log(list)
         return list
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+        console.log(err)
+        return ["coca","cola"]    
+    });
 };
