@@ -50,7 +50,7 @@ router.get("/getData", (req, res) => {
   //   if (err) return res.json({ success: false, error: err });
   //   return res.json({ success: true, data: data });
   // });
-  return res.json({ success: true, data: [{"_id":1,"name":"Saffola Active Edible Oil","category":"Food and Beverages","SP":105,"discount":"19%","MRP":130,"subCategory":"oils"},{"_id":2,"name":"Fortune Sunflower Refined Oil","category":"Food and Beverages","SP":560,"discount":"12%","MRP":635,"subCategory":"oils"}]})
+  return []
 });
 
 router.post("/getPath",(req,res) => {
