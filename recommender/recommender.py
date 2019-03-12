@@ -29,11 +29,11 @@ class Recommender:
                 if((preds[j] > maxi) and (classes[j] not in added)):
                     maxi = preds[j]
                     max_index = j
-            added.append(classes[max_index])
+            added.append(int(classes[max_index]))
 
         return added
 
 
 
 
-print(Recommender().getNRecommendations(43, "female", "october", 4))
+#print(Recommender().getNRecommendations(43, "female", "october", 4))
