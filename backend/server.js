@@ -72,7 +72,12 @@ image_processing_router.get("/getMobileNumber", (req, res) => {
   //return mobile number
   //TODO write logic pick the phone number from frontend till here and push mobile Number
   //dummy logic
+  facial_session_data = {
+    'recognized' : false
+  }
   var mobileNumber = "9456875457"
+  console.log("facial_session_data", facial_session_data)
+
   res.json({mobileNumber : mobileNumber})
 })
 
@@ -88,7 +93,8 @@ image_processing_router.post("/updateAgeAndGender", (req, res) => {
   var gender = req.body.gender;
   facial_session_data[mobileNumber] = {
     'age' : age,
-    'gender' : gender
+    'gender' : gender,
+    'recognized':true
   }
   console.log("facial_session_data", facial_session_data)
   res.end("success")
@@ -111,7 +117,7 @@ image_processing_router.post("/updateAgeAndGender", (req, res) => {
 //   Data.findOneAndDelete(id, err => {
 //     if (err) return res.send(err);
 //     return res.json({ success: true });
-//   });get 
+//   });get
 // });
 
 // this is our create methid
