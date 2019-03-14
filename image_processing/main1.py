@@ -1,8 +1,8 @@
-import requests
-import json
 import time
 from config import config
+from main import MainClass
 import boto3
+import json
 
 def create_bucket(bucket_prefix, s3_connection):
     session = boto3.session.Session()
@@ -15,65 +15,21 @@ def create_bucket(bucket_prefix, s3_connection):
     print(bucket_name, current_region)
     return bucket_name, bucket_response
 
-class MainClass:
-    face_recognition = 1
-    facial_analysis = 2
-    def __init__(self):
-
-        self.client = boto3.client('rekognition')
-        self.s3_resource = boto3.resource('s3')
-        # self.create_collection("stranger_collection")
-
-    def create_collection(self, collection_id):
-        response = self.client.create_collection(CollectionId=collection_id)
-        if response['StatusCode'] == 200:
-            print("New collection with id " + collection_id + "created successfully")
-        else :
-            print("There was a problem")
-
-    def upload_file_to_s3(self, file_name, file_key):
-        '''
-
-        :param file_name: the system specific path of the file
-        :return: nothing
-        '''
-        self.s3_resource.meta.client.upload_file(
-            Filename=config.image_file_name, Bucket=config.amazon_info['s3_bucket_name'],
-            Key=file_key)
-
-    def index_faces(self, collection_id, photo, bucket):
-        response = self.client.index_faces(CollectionId=collection_id,
-                                      Image={'S3Object': {'Bucket': bucket, 'Name': photo}},
-                                      ExternalImageId=photo,
-                                      MaxFaces=1,
-                                      QualityFilter="AUTO",
-                                      DetectionAttributes=['ALL'])
-        #collection only the 1st image
-        self.face_id = response['FaceRecords'][0]['Face']['FaceId']
-        print("face id is " + self.face_id)
+class MainClass1(MainClass):
 
     def get_phone_number_from_front_end(self):
         #make a GET request to get phone number from the front end
-        response = {
-            'status_code' : 100
-        }
-        while(True):
-            print("polling for get request /getMobileNumber")
-            response = requests.get("http://localhost:3001/api/v1/image_processing/getMobileNumber")
-            if response.status_code == 200:
-                response_json = response.json()
-                return response_json['mobileNumber']
-            else:
-                time.sleep(5)
+        return json.dumps({"recognized":False})
 
     def send_phone_number_to_front_end(self, phone_number):
-        #make a POST request to send phone number to front end/backend
-        response = requests.post("http://localhost:3001/api/v1/image_processing/postMobileNumber", data={'mobileNumber' : phone_number})
-        #TODO logic to poll to ensure api is executed successfully
+        pass
+
     def update_age_and_gender(self, phone_number, age, gender):
-        #make a POST request to send phone number to front end/backend
-        response = requests.post("http://localhost:3001/api/v1/image_processing/updateAgeAndGender", data={'mobileNumber' : phone_number, 'age' : age, 'gender' : gender})
-        #TODO logic to poll to ensure api is executed successfully
+        return json.dumps({"recognized" : phone_number,
+                            "age" : age,
+                            "gender" : gender})
+
+
     def run(self, type):
 
         self.upload_file_to_s3(config.image_file_name, config.image_file_name.split('/')[-1])# customize this to give key name
@@ -123,18 +79,12 @@ class MainClass:
             else:
                 print("Creating a new collection from phone number")
                 #create the collection with id mobileNumber
-                config.user_info['mobile_number'] = self.get_phone_number_from_front_end()
-                self.create_collection(config.user_info['mobile_number'])
-                self.index_faces(config.user_info['mobile_number'], config.image_file_name.split('/')[-1],
-                                 config.amazon_info['s3_bucket_name'])
+                return self.get_phone_number_from_front_end()
         elif len(match_collection_ids) == 0:
             print("Entered here")
             print("Creating a new collection from phone number")
             # create the collection with id mobileNumber
-            config.user_info['mobile_number'] = self.get_phone_number_from_front_end()
-            self.create_collection(config.user_info['mobile_number'])
-            self.index_faces(config.user_info['mobile_number'], config.image_file_name.split('/')[-1],
-                             config.amazon_info['s3_bucket_name'])
+            return self.get_phone_number_from_front_end()
 
         response = self.client.detect_faces(Image={'S3Object': {'Bucket': config.amazon_info['s3_bucket_name'],
                                                                 'Name': config.image_file_name.split('/')[-1]}},
@@ -145,19 +95,26 @@ class MainClass:
 
         if selected_collection_id != '':
             self.send_phone_number_to_front_end(selected_collection_id)
-            self.update_age_and_gender(selected_collection_id, approx_age, gender)
+            return self.update_age_and_gender(selected_collection_id, approx_age, gender)
             #this means face is recognised
-        else:
-            self.send_phone_number_to_front_end(config.user_info['mobile_number'])
-            self.update_age_and_gender(config.user_info['mobile_number'], approx_age, gender)
-            #TODO when a new user has logged in
 
 
 
-        # print("approximate age is " + str(approx_age))
-        # print("the gender is " + str(response['FaceDetails'][0]['Gender']))
 
-"""config.image_file_name = 'images/naman.png'
-config.amazon_info['s3_bucket_name'] = 'developmentuserbucket'
-main_class = MainClass()
-main_class.run(type=MainClass.facial_analysis)"""
+
+    def re_run(self, type, mobile_number):
+        config.user_info['mobile_number'] = mobile_number
+        self.create_collection(config.user_info['mobile_number'])
+        self.index_faces(config.user_info['mobile_number'], config.image_file_name.split('/')[-1],
+                         config.amazon_info['s3_bucket_name'])
+
+        response = self.client.detect_faces(Image={'S3Object': {'Bucket': config.amazon_info['s3_bucket_name'],
+                                                                'Name': config.image_file_name.split('/')[-1]}},
+                                            Attributes=['ALL'])
+        approx_age = (response['FaceDetails'][0]['AgeRange']['Low'] + response['FaceDetails'][0]['AgeRange'][
+            'High']) / 2
+        gender = response['FaceDetails'][0]['Gender']['Value']
+
+        self.send_phone_number_to_front_end(config.user_info['mobile_number'])
+        return self.update_age_and_gender(config.user_info['mobile_number'], approx_age, gender)
+        #TODO when a new user has logged in
