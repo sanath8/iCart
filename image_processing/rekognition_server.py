@@ -20,7 +20,7 @@ def index():
 
 @app.route('/run', methods = ['GET', 'POST'])
 def getdata():
-    config.image_file_name = 'images/saj.png'
+    config.image_file_name = 'images/webcam.jpg'
     config.amazon_info['s3_bucket_name'] = 'developmentuserbucket'
     main_class1 = MainClass1()
     results = main_class1.run(type=MainClass.facial_analysis)
@@ -30,7 +30,7 @@ def getdata():
 @app.route('/rerun', methods = ['GET', 'POST'])
 def postdata():
     phone_number = request.args.get('phone_number')
-    config.image_file_name = 'images/saj.png'
+    config.image_file_name = 'images/webcam.jpg'
     config.amazon_info['s3_bucket_name'] = 'developmentuserbucket'
     main_class1 = MainClass1()
     results = main_class1.re_run(type=MainClass.facial_analysis, mobile_number=phone_number)
