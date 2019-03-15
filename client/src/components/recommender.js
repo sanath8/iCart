@@ -15,7 +15,7 @@ class Recommender extends React.Component {
             time: Date.now(),
             count: this.state.count+1 
         }), 5000);
-        getRecommendation().then(res =>{
+        getRecommendation(this.props.age,this.props.gender).then(res =>{
             if(res.length)
             this.setState({
                items: [...new Set(res)]

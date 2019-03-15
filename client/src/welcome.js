@@ -8,7 +8,9 @@ class Welcome extends Component{
     super(props)
     this.state = {
         recognized: false,
-        started: false
+        started: false,
+        age: 0,
+        gender: ''
     }
   }
 //   ShowModalFunction(visible) {
@@ -19,28 +21,33 @@ class Welcome extends Component{
 //   componentWillUnmount() {
 //   } 
   getRecognition = () => {
-    getRekognition().then(e=>{
+    getRekognition().then(res=>{
         this.setState({
             started: true
         })
-        console.log(e)
-        if(e.recognized){
+        console.log(res)
+        if(res.recognized){
             this.setState({
-                recognized: true
+                recognized: true,
+                age: res.age,
+                gender: res.gender
             })
         }
     })
   }
   getStatus = (data) => {
+    console.log(data)
     this.setState({
-      recognized: data
+      recognized: true,
+      age: data.age,
+      gender: data.gender
     })
   }
   render() {
     const { recognized } = this.state
     const { started } = this.state
     if(started && recognized) {
-        return <MainScreen/>
+        return <MainScreen age={this.state.age} gender={this.state.gender}/>
     } 
     if(started && !recognized) {
         return <GetNumber getStatus={this.getStatus}/>

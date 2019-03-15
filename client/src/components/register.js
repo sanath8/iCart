@@ -16,7 +16,7 @@ class GetNumber extends Component {
     getRekognition(this.state.value).then(res=>{
       console.log(res)
       if(res.recognized){
-        this.props.getStatus(true);
+        this.props.getStatus(res);
       }
     })
   }
