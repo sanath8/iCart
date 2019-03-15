@@ -4,9 +4,10 @@ echo "snapshot successful"
 
 user_name="pi" 
 server_ip="127.0.0.1"
+password=""
 
 echo "transferring captured image to remote server"
- sshpass -p "" scp -p images/webcam.jpg  $user_name@$server_ip:./ITS1/iCart/image_processing/images
+sshpass -p $password scp -p images/webcam.jpg  $user_name@$server_ip:./ITS1/iCart/image_processing/images
 echo "image transferred successfully"
 
 
