@@ -5,10 +5,10 @@ class config:
         's3_bucket_name' : '',
     }
     search_faces = {
-        'threshold' : 50,
+        'threshold' : 80,
         'maxFaces' : 2
     }
     user_info = {
         'mobile_number' : '7353205549'
     }
-    number_of_users = 5
+    number_of_users = 20
