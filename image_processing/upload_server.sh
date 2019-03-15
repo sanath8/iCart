@@ -2,11 +2,11 @@ echo "taking snapshot"
 fswebcam  images/webcam.jpg 
 echo "snapshot successful"
 
-user_name="sanath" 
-server_ip="192.168.1.5"
+user_name="pi" 
+server_ip="127.0.0.1"
 
 echo "transferring captured image to remote server"
- sshpass -p "0987" scp -p images/webcam.jpg  $user_name@$server_ip:./ITS1/iCart/image_processing/images
+ sshpass -p "" scp -p images/webcam.jpg  $user_name@$server_ip:./ITS1/iCart/image_processing/images
 echo "image transferred successfully"
 
 
