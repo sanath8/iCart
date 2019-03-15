@@ -15,7 +15,7 @@ class Recommender extends React.Component {
             time: Date.now(),
             count: this.state.count+1 
         }), 5000);
-        getRecommendation().then(res =>{
+        getRecommendation(this.props.age,this.props.gender).then(res =>{
             if(res.length)
             this.setState({
                items: [...new Set(res)]
@@ -28,16 +28,16 @@ class Recommender extends React.Component {
         clearInterval(this.interval);
     }    
 
-    // getUniqueIds = () => {
-    //     var limit = 4, lower_bound = 1, upper_bound = 84, unique_random_numbers = [];
-    //     while (unique_random_numbers.length < limit) {
-    //         var random_number = Math.floor(Math.random()*(upper_bound - lower_bound) + lower_bound);
-    //         if (unique_random_numbers.indexOf(random_number) === -1) { 
-    //             unique_random_numbers.push( random_number );
-    //         }
-    //     }
-    //     return unique_random_numbers
-    // }
+    getUniqueIds = () => {
+        var limit = 4, lower_bound = 1, upper_bound = 84, unique_random_numbers = [];
+        while (unique_random_numbers.length < limit) {
+            var random_number = Math.floor(Math.random()*(upper_bound - lower_bound) + lower_bound);
+            if (unique_random_numbers.indexOf(random_number) === -1) { 
+                unique_random_numbers.push( random_number );
+            }
+        }
+        return unique_random_numbers
+    }
 
     getItemsIds = () => {
         const {items} = this.state;
