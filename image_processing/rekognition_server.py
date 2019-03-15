@@ -8,7 +8,8 @@ import time
 from config import config
 from main import MainClass
 import boto3
-
+import subprocess
+import os
 
 app = Flask(__name__)
 
@@ -20,6 +21,7 @@ def index():
 
 @app.route('/run', methods = ['GET', 'POST'])
 def getdata():
+    os.system('./upload_server.sh')
     config.image_file_name = 'images/webcam.jpg'
     config.amazon_info['s3_bucket_name'] = 'developmentuserbucket'
     main_class1 = MainClass1()
