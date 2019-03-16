@@ -1,6 +1,7 @@
 export const getItemlist = (name) => {
     // return fetch("https://icartsystem.herokuapp.com/products?productName="+name)
-    return fetch("http://localhost:3001/products?productName="+name)
+    // return fetch("http://localhost:3001/products?productName="+name)
+    return fetch("http://192.168.1.13:3001/products?productName="+name)
     .then(data => data.json())
     .then(res => {
         let list=[]

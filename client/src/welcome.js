@@ -29,8 +29,8 @@ class Welcome extends Component{
         if(res.recognized){
             this.setState({
                 recognized: true,
-                age: res.age,
-                gender: res.gender
+                age: Math.floor(res.age),
+                gender: res.gender.toLowerCase()
             })
         }
     })
