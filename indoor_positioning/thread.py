@@ -10,13 +10,13 @@ class Nodes:
 	nearest_node = 0
 
 	def set_nearest_node(id):
-		nearest_node = id
+		Nodes.nearest_node = id
 
 	def get_nearest_node():
-		return nearest_node
+		return Nodes.nearest_node
 
 	def get_nearest_node_name():
-		return MobileInfo.mobiles[nearest_node]["name"]
+                return MobileInfo.mobiles[Nodes.nearest_node]["name"]
 
 class myThread (threading.Thread):
 	def __init__(self, threadID, name, b_addr):
@@ -46,13 +46,16 @@ class IPS:
 				b = self.reset_bluetooth_instance()
 			if(rssi > 0):
 				Nodes.set_nearest_node(threadId)
-			#print("Nearest node-name is ", Nodes.get_nearest_node_name(), "Node ID", Nodes.get_nearest_node())
+			print("Nearest node-name is ", Nodes.get_nearest_node_name(), "Node ID", Nodes.get_nearest_node())
 			counter -= 1
 
 	def get_rssi_value(self, b):
-	   rssi = b.get_rssi()
-	   return rssi
-
+                rssi = b.request_rssi()
+                try:
+                        return int(rssi[0])
+                except:
+                        print("none value")
+                        return -100
 	def sensor_passive(self, rssi):
 		if(rssi == 0 or rssi == None):
 			self.no_signal_counter += 1
