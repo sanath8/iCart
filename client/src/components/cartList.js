@@ -1,16 +1,36 @@
 import React from 'react';
 import './../css/main.css';
- 
+import Datalist from'./datalist';
+
 class CartList extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+        list: [],
+        };
+    }
+    
+    getCart = (list) => {
+        this.setState({
+          list: list
+        })
+    }
+    getPath = (e) => {
+        console.log(e)
+    }
     render() {
-        const cart = this.props.list
+        const cart = this.state.list
         return (
          <div className="cartList">
+            <Datalist getCart = {this.getCart} getData = {this.props.getData}/>
             <div className="list">
                 Items in the cart
                 {
                     cart.map((item) => (
-                        <li key={item}>
+                        <li 
+                            key={item}
+                            onClick={e=>this.getPath(item)}
+                        >
                             {item}
                         </li>
                     ))

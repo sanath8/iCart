@@ -7,15 +7,27 @@ const nodes = [{x:50,y:25},{x:125,y:25},{x:200,y:25},{x:200,y:75},{x:125,y:75},{
 class Graph extends React.Component {
     state = {
         intervalIsSet: false,
+        location: -1,
         path: []
     };
     componentDidMount() {
-        getPath().then(res =>{
-            this.setState({
-                path: res.data
-            })
-            console.log(res.data)
-        })
+        // getPath().then(res =>{
+        //     this.setState({
+        //         path: res.data
+        //     })
+        //     console.log(res.data)
+        // })
+        var that = this;
+        (function(){
+            var ws = new WebSocket("ws://192.168.1.7:5678/")
+            ws.onmessage = function (event) {
+                console.log(event.data)
+                console.log(that)
+                that.setState({
+                    location: event.data
+                })
+            };
+        })()
         this.updateCanvas();
         setTimeout(this.updateCanvas,1000)
         if (!this.state.intervalIsSet) {
@@ -35,6 +47,11 @@ class Graph extends React.Component {
         for( var i=0; i<6; i++){
             ctx.fillRect(nodes[i].x, nodes[i].y, 5, 5);
         }
+        if(this.state.location>=0){
+            ctx.fillStyle = "#0000FF";
+            ctx.fillRect(nodes[this.state.location].x, nodes[this.state.location].y, 5, 5);
+        }
+        ctx.fillStyle = "#000000";
         for(i=0; i<3; i++){
             ctx.font = "Arial";
             ctx.fillText(i+1, nodes[i].x, nodes[i].y-2);

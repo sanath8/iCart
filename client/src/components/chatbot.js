@@ -56,7 +56,7 @@ class Chatbot extends React.Component {
    render() {
       return (
          <div className="chatbot">
-            <Datalist getCart = {this.props.getCart} getData = {this.props.getData}/>
+            {/* <Datalist getCart = {this.props.getCart} getData = {this.props.getData}/> */}
             <div className="chatbotHeader">Need any Help?</div>
             <div className="messageArea" id="postContainer"></div>
             <div>

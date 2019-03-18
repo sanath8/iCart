@@ -10,15 +10,8 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      list: [],
       data: [],
     };
-  }
-
-  getCart = (list) => {
-    this.setState({
-      list: list
-    })
   }
 
   getData = (data) => {
@@ -32,9 +25,9 @@ class App extends Component {
       <div>
         <Header/>
       <div className="body">
-        <Chatbot getCart={this.getCart} getData={this.getData}/>
+        <Chatbot />
         <Graph/>
-        <CartList list={this.state.list}/>
+        <CartList getData={this.getData}/>
       </div>
         <Recommender data={this.state.data} age={this.props.age} gender={this.props.gender}/>
       </div>

@@ -1,14 +1,6 @@
 div{
     margin: 0;
 }
-label { 
-    display:block;
-    width:14vw;
-    word-wrap:break-word;
-    float: left;
-    margin: 0;
-    padding: 0;
-}
 .header {
     width: 100vw;
     background-color:  #000000;
@@ -29,31 +21,6 @@ label {
     background-color:  darkslategrey;
     overflow: auto;
 }
-.datalist{
-    width: inherit;
-    height: 4vh;
-    background-color:  darkslategray;
-    overflow: auto;
-}
-.datalistInput{
-    /* margin: 0.25vw; */
-    width: 30vw;
-    height: 3vh;
-    margin-left: 0.25vw;
-    /* font-size: 2vw; */
-    float: left;
-}
-.itemAdd{
-    float: left;
-    width: 7vw;
-    height: inherit;
-    margin-left: 0.25vw;
-    border-radius: 1vw;
-    background-color: aqua;
-    border: #000000;
-    /* font-size: 1vw; */
-    overflow: hidden;
-}
 .chatbotHeader{
     width: 39.5vw;
     height: 4vh;
@@ -68,7 +35,7 @@ label {
 }
 .messageArea{
     width: 39.5vw;
-    height: 59.5vh;
+    height: 63.5vh;
     margin-left: 0.25vw;
     margin-bottom: 0.25vw;
     /* margin-top: 0.2vw; */
@@ -104,7 +71,7 @@ label {
     height: 6vh;
     /* margin-top: 2vh; */
     margin-left: 0.25vw;
-    border-radius: 1vw;
+    border-radius: 0.5vw;
     background-color: aqua;
     border: #000000
 }
@@ -122,20 +89,46 @@ label {
 .cartList {
     float: left;
     display: block;
-    width: 20vw;
+    width: 30vw;
     height: inherit;
     background-size: 100% 100%;
     background-color: lightyellow;
     overflow: hidden;
 }
+.datalist{
+    width: inherit;
+    height: 4vh;
+    background-color:  darkslategray;
+    overflow: auto;
+}
+.datalistInput{
+    /* margin: 0.25vw; */
+    width: 24vw;
+    height: 3vh;
+    margin-left: 0.25vw;
+    /* font-size: 2vw; */
+    float: left;
+}
+.itemAdd{
+    float: left;
+    width: 4vw;
+    height: inherit;
+    margin-left: 0.25vw;
+    border-radius: 0.5vw;
+    background-color: aqua;
+    border: #000000;
+    /* font-size: 1vw; */
+    overflow: hidden;
+}
 .list{
-    padding: 2vw;
+    margin: 0%;
+    padding-left: 2vw;
     font-size: 3vh;
 }
 .graph {
     float: left;
     display: block;
-    width: 40vw;
+    width: 30vw;
     height: inherit;
     background-size: 100% 100%;
     background-color: grey;
@@ -174,9 +167,16 @@ label {
     height: 100%;
     opacity: 0.9;
 }
+.label { 
+    display:block;
+    width:14vw;
+    word-wrap:break-word;
+    float: left;
+    padding: 0;
+}
 label{
-    margin: 0;
     font-size: 2vw;
+    margin: 0;
 }
 @media only screen and (min-width: 400px){
     .keyboard{
@@ -188,7 +188,7 @@ label{
         width: 240px;
     }
     .messageArea{
-        height: 53vh;
+        height: 57vh;
     }
 }
 @media only screen and (max-width: 450px){
@@ -203,16 +203,16 @@ label{
 }
 @media only screen and (max-height: 600px) and (max-width: 400px){
     .messageArea{
-        height: 48vh;
+        height: 52vh;
     }
 }
 @media only screen and (max-height: 530px) and (max-width: 400px){
     .messageArea{
-        height: 43vh;
+        height: 47vh;
     }
 }
 @media only screen and (max-height: 460px) and (max-width: 400px){
     .messageArea{
-        height: 38vh;
+        height: 42vh;
     }
 }

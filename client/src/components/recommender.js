@@ -62,11 +62,11 @@ class Recommender extends React.Component {
                      <div className="item" key={item._id}>
                         <img src={require('../images/'+item._id+'.png')} alt="hs"></img>
                         <div className="details">
-                            <label>{item.name}</label><br></br>
+                            <label className="label">{item.name}</label><br></br>
                             {/* <span>{item.name}</span><br></br> */}
                             {/* <label>Cat: {item.category}</label><br></br> */}
-                            <label>Price: {item.SP}</label><br></br>
-                            <label>Discount: {item.discount}</label>
+                            <label className="label">Price: {item.SP}</label><br></br>
+                            <label className="label">Discount: {item.discount}</label>
                         </div>
                      </div>
                     ))
