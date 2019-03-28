@@ -1,5 +1,9 @@
-from shortest_path.graph import *
-from shortest_path.item_map import *
+#from shortest_path.graph import *
+#from shortest_path.item_map import *
+
+from graph import *
+from item_map import *
+
 class DijkstraAlgo:
     def __init__(self, graph):
         self.graph = graph

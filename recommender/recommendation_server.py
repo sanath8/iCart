@@ -2,6 +2,12 @@ from flask import Flask, request
 import json
 from recommender import Recommender
 from flask_cors import CORS
+import sys
+sys.path.append("../shopbot/shortest_path/")
+from dijktras_shortest_path import *
+from graph import *
+from item_map import *
+
 app = Flask(__name__)
 
 CORS(app)
@@ -25,6 +31,17 @@ def postdata():
         return json.dumps({"recommendations":recommeds})
     except:
         return json.dumps({"recommendations":"error"})
+
+
+@app.route('/shortestPath', methods = ['GET', 'POST'])
+def getdata():
+        currentNode = int(request.args.get('current'))
+        destinationNode = int(request.args.get('destination'))
+        graph = Graph(0)
+        dijk = DijkstraAlgo(graph.getGraph())
+        dijk.run(currentNode)
+        msg = json.dumps({"shortest_path":dijk.getPath(destinationNode)})
+        return msg
 
 if __name__ == "__main__":
     app.run(port=9000)
