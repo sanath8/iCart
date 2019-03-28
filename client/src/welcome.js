@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import MainScreen from './mainScreen';
 import GetNumber from './components/register';
 import {getRekognition} from './apis/getRekognition';
+import {Fab} from '@material-ui/core'
+import './css/welcome.css';
 
 class Welcome extends Component{
   constructor (props) {
@@ -13,13 +15,6 @@ class Welcome extends Component{
         gender: ''
     }
   }
-//   ShowModalFunction(visible) {
-//     this.setState({cancelable: visible}); 
-//   }
-//   componentDidMount(){
-//   }
-//   componentWillUnmount() {
-//   } 
   getRecognition = () => {
     getRekognition().then(res=>{
         this.setState({
@@ -29,8 +24,8 @@ class Welcome extends Component{
         if(res.recognized){
             this.setState({
                 recognized: true,
-                age: res.age,
-                gender: res.gender
+                age: Math.floor(res.age),
+                gender: res.gender.toLowerCase()
             })
         }
     })
@@ -53,23 +48,21 @@ class Welcome extends Component{
         return <GetNumber getStatus={this.getStatus}/>
     }
     return(
-        <div>
-            <button onClick={this.getRecognition}>GO</button>
-        </div>      
+      <div className="landing">
+        <div className="bg">
+          <div style={{width: "40vw"}}>
+            <p className="text">Welcome to the iCart Mall!</p>
+            <Fab
+              className="button"
+              variant="extended"
+              size="medium"
+              color="primary"
+              onClick={this.getRecognition}>Let's Get Started</Fab>
+          </div>
+        </div>
+      </div>            
       )
   }
 }
 
-// const mapStateToProps = (state) => ({
-//   verified: state.languageReducer.verified,
-//   isVisible: state.languageReducer.isVisible
-// });
-
-// const mapDispatchToProps = (dispatch) => ({
-//   showSplashScreen: () => dispatch({type: Actions.SHOW_SCREEN})
-// });
-
-// export default connect(mapStateToProps, mapDispatchToProps)(StartPage);
-
-export default Welcome
-// export default withRouter(Welcome)
+export default Welcome;
