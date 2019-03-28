@@ -11,7 +11,7 @@ class App extends Component {
     super(props)
     this.state = {
       data: [],
-      item: ""
+      item: -1
     };
   }
 
