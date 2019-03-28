@@ -20,7 +20,7 @@ class Recommender extends React.Component {
             this.setState({
                items: [...new Set(res)]
             })
-            console.log(this.state.items)
+            // console.log(this.state.items)
         })
     }
 
@@ -44,7 +44,7 @@ class Recommender extends React.Component {
         const {count} = this.state;
         const length = items.length;
         if(items.length<=4) return items;
-        console.log(items.slice(count%(length-3),count%(length-3)+4))
+        // console.log(items.slice(count%(length-3),count%(length-3)+4))
         return items.slice(count%(length-3),count%(length-3)+4)
     }
 

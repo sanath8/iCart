@@ -1,6 +1,6 @@
 import React from 'react';
 import './../css/main.css';
-import Datalist from'./datalist';
+// import Datalist from'./datalist';
 import KeyBoard from "./keyboard"
 import "react-simple-keyboard/build/css/index.css";
 import {getReply} from '../apis/getReply';

@@ -11,6 +11,7 @@ class App extends Component {
     super(props)
     this.state = {
       data: [],
+      item: -1
     };
   }
 
@@ -20,14 +21,20 @@ class App extends Component {
     })
   }
 
-  render() {
+  getPath = (data) => {
+    this.setState({
+      item: data
+    })
+  }
+
+   render() {
     return (
       <div>
         <Header/>
       <div className="body">
         <Chatbot />
-        <Graph/>
-        <CartList getData={this.getData}/>
+        <Graph item={this.state.item}/>
+        <CartList getData={this.getData} getPath={this.getPath}/>
       </div>
         <Recommender data={this.state.data} age={this.props.age} gender={this.props.gender}/>
       </div>
