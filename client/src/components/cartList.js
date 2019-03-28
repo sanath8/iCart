@@ -6,7 +6,7 @@ class CartList extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-        list: [],
+            list: [],
         };
     }
     
@@ -15,8 +15,9 @@ class CartList extends React.Component {
           list: list
         })
     }
-    getPath = (e) => {
-        console.log(e)
+    getPath = (item) => {
+        console.log(item)
+        this.props.getPath(item)
     }
     render() {
         const cart = this.state.list

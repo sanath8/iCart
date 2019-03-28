@@ -1,13 +1,15 @@
 import React from 'react';
 import './../css/main.css';
-import {getPath} from '../apis/getPath';
+import { getPath } from '../apis/getPath';
+// import {getPath} from '../apis/getPath';
 
 const nodes = [{x:50,y:25},{x:125,y:25},{x:200,y:25},{x:200,y:75},{x:125,y:75},{x:50,y:75}]
+const sections = ["Food","Stationary","Sports","Personal Care","Clothing","Home Care"]
 
 class Graph extends React.Component {
     state = {
-        intervalIsSet: false,
-        location: -1,
+        // intervalIsSet: false,
+        location: 0,
         path: []
     };
     componentDidMount() {
@@ -19,46 +21,53 @@ class Graph extends React.Component {
         // })
         var that = this;
         (function(){
-            var ws = new WebSocket("ws://192.168.1.7:5678/")
+            // var ws = new WebSocket("ws://192.168.1.7:5678/")
+            var ws = new WebSocket("ws://localhost:5678/")
             ws.onmessage = function (event) {
-                console.log(event.data)
-                console.log(that)
                 that.setState({
                     location: event.data
                 })
+                // console.log(that.props.item)
+                // getPath(that.state.location,that.props.item).then(res =>{
+                //     that.setState({
+                //         path: res.data
+                //     })
+                // })
+                that.updateCanvas()
             };
         })()
         this.updateCanvas();
-        setTimeout(this.updateCanvas,1000)
-        if (!this.state.intervalIsSet) {
-            let interval = setInterval(this.updateCanvas, 10000);
-            this.setState({ intervalIsSet: interval });
-        }
+        // setTimeout(this.updateCanvas,1000)
+        // if (!this.state.intervalIsSet) {
+        //     let interval = setInterval(this.updateCanvas, 10000);
+        //     this.setState({ intervalIsSet: interval });
+        // }
     }
-    componentWillUnmount() {
-        if (this.state.intervalIsSet) {
-            clearInterval(this.state.intervalIsSet);
-            this.setState({ intervalIsSet: null });
-        }
-    }
+    // componentWillUnmount() {
+    //     if (this.state.intervalIsSet) {
+    //         clearInterval(this.state.intervalIsSet);
+    //         this.setState({ intervalIsSet: null });
+    //     }
+    // }
 
     updateCanvas = () => {
         const ctx = this.refs.canvas.getContext('2d');
+        ctx.clearRect(0,0,500,500)
         for( var i=0; i<6; i++){
-            ctx.fillRect(nodes[i].x, nodes[i].y, 5, 5);
+            ctx.fillRect(nodes[i].x, nodes[i].y, 5, 5);   //nodes
         }
         if(this.state.location>=0){
             ctx.fillStyle = "#0000FF";
-            ctx.fillRect(nodes[this.state.location].x, nodes[this.state.location].y, 5, 5);
+            ctx.fillRect(nodes[this.state.location].x, nodes[this.state.location].y, 5, 5);   //current node
         }
         ctx.fillStyle = "#000000";
         for(i=0; i<3; i++){
-            ctx.font = "Arial";
-            ctx.fillText(i+1, nodes[i].x, nodes[i].y-2);
+            ctx.font = "10px Arial";
+            ctx.fillText(sections[i], nodes[i].x-20, nodes[i].y-2);     //section names
         }
         for(i=3; i<6; i++){
-            ctx.font = "Arial";
-            ctx.fillText(i+1, nodes[i].x, nodes[i].y+14);
+            ctx.font = "9px Arial";
+            ctx.fillText(sections[i], nodes[i].x-20, nodes[i].y+14);     //section names
         }
         ctx.beginPath();
         ctx.moveTo(nodes[0].x+2.5, nodes[0].y+2.5)
