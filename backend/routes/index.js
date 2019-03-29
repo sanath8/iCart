@@ -162,28 +162,42 @@ function createNewCustomer(phoneNumber) {
 })
 
 //products api 
+var result;
 router.get('/products', function(req, res, next) {
 	console.log("the product name is" +req.query.productName)
-
-	client.connect(err => {	
-	  const collection = client.db("iCartSystem").collection("products");
-	  collection.find({}).toArray(function(err, result){
-	  	if(err) throw err;
-			console.log(result);
+	if(req.query.productName == ""){
+		client.connect(err=>{
+			const collection = client.db("iCartSystem").collection("products");
+		  	collection.find({}).toArray(function(err, products){
+				if(err) console.log(err)
+				result =  products; 
+				res.send(result);		
+			})
+		})
+	}
+	// client.connect(err => {	
+	//   const collection = client.db("iCartSystem").collection("products");
+	//   console.log(collection)
+	//   collection.find({}).toArray(function(err, result){
+	  	// if(err) throw err;
+			// console.log(result);
+		else{
 			var matchingProducts = [];
 			for(var i=0; i< result.length; i++){
 				var product_name = (result[i].name).toLowerCase();
 				var databaseProductName = (req.query.productName).toLowerCase();
-				console.log("one individula"+product_name + "  " + req.query.productName);
-				if(product_name.startsWith(databaseProductName)){
+				// console.log("one individula"+product_name + "  " + req.query.productName);
+				// if(product_name.startsWith(databaseProductName)){
+				if(product_name.indexOf(databaseProductName) != -1){
 					matchingProducts.push(result[i]);
-					console.log(result[i])
+					// console.log(result[i])
 				}
 			}
 	  	// client.close();
-	  	res.send(matchingProducts);		
-	  })	  
-	});
+		  	res.send(matchingProducts);		
+		}
+	//   })	  
+	// });
 });
 
 

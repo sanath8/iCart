@@ -27,7 +27,7 @@ class Graph extends React.Component {
         this.updateCanvas();
      }
     componentDidUpdate(prevProps) {
-        if(!(this.props.item == prevProps.item))
+        if(!(this.props.item === prevProps.item))
            this.getPath();
     }
     getPath = () => {
