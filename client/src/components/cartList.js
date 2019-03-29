@@ -20,7 +20,7 @@ class CartList extends React.Component {
         let data = this.state;
         let array = data.data;
         let searchItem = array.filter(function(dataItem){
-            return dataItem.name == item
+            return dataItem.name === item
         })
         let cat, section
         if(searchItem.length) cat = searchItem[0].category
@@ -31,6 +31,7 @@ class CartList extends React.Component {
             case "Beauty and Personal Care": section=3; break;
             case "Clothing and Fashion": section=4; break;
             case "Home Care": section=5; break;
+            default : section=-1; 
         }
         this.props.getPath(section)
     }
