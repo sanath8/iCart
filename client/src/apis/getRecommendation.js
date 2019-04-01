@@ -1,8 +1,9 @@
 import axios from "axios";
 export const getRecommendation = (age, gender) => {
     console.log(age, gender)
-    return axios.post("http://127.0.0.1:9000/recommendations?age="+age+"&gender="+gender+"&month=january&number=10")
+    // return axios.post("http://127.0.0.1:9000/recommendations?age="+age+"&gender="+gender+"&month=january&number=10")
     // return axios.post("http://192.168.1.13:9000/recommendations?age="+age+"&gender="+gender+"&month=january&number=10")
+    return axios.post("http://127.0.0.1:9000/recommendations?age=27&gender=female&month=january&number=10")
     .then(res => 
         {
             return res.data.recommendations

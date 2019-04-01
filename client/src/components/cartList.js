@@ -1,6 +1,16 @@
 import React from 'react';
 import './../css/main.css';
 import Datalist from'./datalist';
+import SwipeableListItem from "./SwipeableListItem";
+import SwipeableList from "./SwipeableList";
+
+const background = <span>Delete</span>;
+
+// const fakeContent = (
+//   <div className="FakeContent">
+//     <span>Swipe to delete</span>
+//   </div>
+// );
 
 class CartList extends React.Component {
     constructor(props){
@@ -17,6 +27,7 @@ class CartList extends React.Component {
         })
     }
     getPath = (item) => {
+        console.log('here')
         let data = this.state;
         let array = data.data;
         let searchItem = array.filter(function(dataItem){
@@ -25,12 +36,12 @@ class CartList extends React.Component {
         let cat, section
         if(searchItem.length) cat = searchItem[0].category
         switch(cat){
-            case "Food and Beverages": section=0; break;
-            case "Stationary and Books": section=1; break;
-            case "Sports and Fitness": section=2; break;
-            case "Beauty and Personal Care": section=3; break;
-            case "Clothing and Fashion": section=4; break;
-            case "Home Care": section=5; break;
+            case "Food and Beverages": section=2; break;
+            case "Stationary and Books": section=5; break;
+            case "Sports and Fitness": section=4; break;
+            case "Beauty and Personal Care": section=0; break;
+            case "Clothing and Fashion": section=3; break;
+            case "Home Care": section=1; break;
             default : section=-1; 
         }
         this.props.getPath(section)
@@ -47,19 +58,32 @@ class CartList extends React.Component {
         return (
          <div className="cartList">
             <Datalist getCart = {this.getCart} getData = {this.getData}/>
-            <div className="list">
-                Items in the cart
+            {/* <div className="list"> */}
+            <div className="cartListHeader">Items in the cart</div>
+            <SwipeableList background={background}>
                 {
                     cart.map((item) => (
-                        <li 
+                        <SwipeableListItem key={item}>
+                        <label 
                             key={item}
                             onClick={e=>this.getPath(item)}
                         >
                             {item}
-                        </li>
+                        </label>
+                        </SwipeableListItem>
                     ))
                 }
-            </div>
+            </SwipeableList>
+            {/* </div> */}
+            {/* <div >
+                <SwipeableList background={background}>
+                <SwipeableListItem>{fakeContent}</SwipeableListItem>
+                <SwipeableListItem>{fakeContent}</SwipeableListItem>
+                <SwipeableListItem>{fakeContent}</SwipeableListItem>
+                <SwipeableListItem>{fakeContent}</SwipeableListItem>
+                <SwipeableListItem>{fakeContent}</SwipeableListItem>
+                </SwipeableList>
+            </div> */}
          </div>
       );
    }

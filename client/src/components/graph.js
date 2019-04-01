@@ -2,7 +2,8 @@ import React from 'react';
 import './../css/main.css';
 import { getPath } from '../apis/getPath';
 
-const nodes = [{x:50,y:25},{x:125,y:25},{x:200,y:25},{x:200,y:75},{x:125,y:75},{x:50,y:75}]
+// const nodes = [{x:50,y:25},{x:125,y:25},{x:200,y:25},{x:200,y:75},{x:125,y:75},{x:50,y:75}]
+const nodes = [{x:410,y:180},{x:660,y:180},{x:910,y:180},{x:910,y:400},{x:660,y:400},{x:410,y:400}]
 const sections = ["Food","Stationary","Sports","Personal Care","Clothing","Home Care"]
 
 class Graph extends React.Component {
@@ -41,48 +42,66 @@ class Graph extends React.Component {
         }
     }
     updateCanvas = () => {
+        var i;
+        var canvas = document.getElementById('theCanvas');
         const ctx = this.refs.canvas.getContext('2d');
-        ctx.clearRect(0,0,500,500)
-        for( var i=0; i<6; i++){
-            ctx.fillRect(nodes[i].x, nodes[i].y, 5, 5);   //nodes
-        }
+        ctx.clearRect(0,0,1200,1200)
+        var img = new Image();
+        img.src = require('../images/layout.jpg');
+        img.onload =  () => {
+            canvas.width=1200;
+            canvas.height=1200;
+            ctx.drawImage(img, 0, 0, img.width, img.height*2, 0, 0, canvas.width, canvas.height);
+        // }
+        // const image = document.getElementById('source');
+        // ctx.drawImage(image, 50, 71, 104, 124, 52, 27, 150, 50);
+        // for( i=0; i<6; i++){
+        //     ctx.fillRect(nodes[i].x, nodes[i].y, 15, 15);   //nodes
+        // }
         if(this.state.location>=0){
             ctx.fillStyle = "#0000FF";
-            ctx.fillRect(nodes[this.state.location].x, nodes[this.state.location].y, 5, 5);   //current node
+            ctx.fillRect(nodes[this.state.location].x-7.5, nodes[this.state.location].y-7.5, 15, 15);   //current node
         }
-        ctx.fillStyle = "#000000";
-        for(i=0; i<3; i++){
-            ctx.font = "10px Arial";
-            ctx.fillText(sections[i], nodes[i].x-20, nodes[i].y-2);     //section names
-        }
-        for(i=3; i<6; i++){
-            ctx.font = "9px Arial";
-            ctx.fillText(sections[i], nodes[i].x-20, nodes[i].y+14);     //section names
-        }
-        ctx.beginPath();
-        ctx.moveTo(nodes[0].x+2.5, nodes[0].y+2.5)
-        for( i=0; i<6; i++){
-            ctx.lineTo(nodes[(i+1)%6].x+2.5, nodes[(i+1)%6].y+2.5)
-        }
-        ctx.moveTo(nodes[1].x+2.5, nodes[1].y+2.5)
-        ctx.lineTo(nodes[4].x+2.5, nodes[4].y+2.5)
-        ctx.strokeStyle = "black"
-        ctx.stroke()
+        // ctx.fillStyle = "#000000";
+        // for(i=0; i<3; i++){
+        //     ctx.font = "10px Arial";
+        //     ctx.fillText(sections[i], nodes[i].x-20, nodes[i].y-2);     //section names
+        // }
+        // for(i=3; i<6; i++){
+        //     ctx.font = "9px Arial";
+        //     ctx.fillText(sections[i], nodes[i].x-20, nodes[i].y+14);     //section names
+        // }
+        // ctx.beginPath();
+        // ctx.moveTo(nodes[0].x+2.5, nodes[0].y+2.5)
+        // for( i=0; i<6; i++){
+        //     ctx.lineTo(nodes[(i+1)%6].x+2.5, nodes[(i+1)%6].y+2.5)
+        // }
+        // ctx.moveTo(nodes[1].x+2.5, nodes[1].y+2.5)
+        // ctx.lineTo(nodes[4].x+2.5, nodes[4].y+2.5)
+        // ctx.strokeStyle = "black"
+        // ctx.stroke()
 
         ctx.beginPath();
         ctx.strokeStyle = "red";
+        ctx.lineWidth = 5;
         const {path} = this.state;
         // ctx.moveTo(nodes[path[1]].x+2.5, nodes[path[1].y+2.5])
         for(i=0; i < path.length; i++){
             // ctx.moveTo(nodes[path[i]].x+2.5, nodes[path[i].y+2.5])
-            ctx.lineTo(nodes[path[i]].x+2.5, nodes[path[i]].y+2.5)
+            // ctx.lineTo(nodes[path[i]].x+2.5, nodes[path[i]].y+2.5)
+            ctx.lineTo(nodes[path[i]].x, nodes[path[i]].y)
         }
         ctx.stroke()
+        }
     }
     render() {
       return (
          <div className="graph">
             <canvas id="theCanvas" ref="canvas"></canvas>
+            <div style={{display:"none"}}>
+                {/* <img id="source" src="http://16hljuumewe30onxk2um4f3bmt.wpengine.netdna-cdn.com/files/2015/05/Orange.png"/> */}
+                {/* <img id="source" src={require('../images/layout.jpg')} alt='sorry'/> */}
+            </div>
          </div>
       );
    }

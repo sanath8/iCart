@@ -60,7 +60,7 @@ class Recommender extends React.Component {
                         return y.includes(e._id)
                      }).map(item => (
                      <div className="item" key={item._id}>
-                        <img src={require('../images/'+item._id+'.png')} alt="hs"></img>
+                        <img style={{objectFit: "contain"}}src={require('../images/'+item._id+'.png')} alt="hs"></img>
                         <div className="details">
                             <label className="label">{item.name}</label><br></br>
                             {/* <span>{item.name}</span><br></br> */}
