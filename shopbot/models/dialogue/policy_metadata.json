@@ -5,20 +5,20 @@
         "item"
       ]
     },
-    "utter_on_it": {
+    "utter_greet": {
+      "slots": []
+    },
+    "utter_sorry_missing": {
       "slots": [
         "item"
       ]
     },
-    "utter_anything_else": {
-      "slots": []
-    },
-    "utter_greet": {
+    "actions_missing_item": {
       "slots": []
     }
   },
-  "rasa_core": "0.11.0",
-  "python": "3.6.7",
+  "rasa_core": "0.11.12",
+  "python": "3.6.5",
   "max_histories": [
     5
   ],

@@ -9,61 +9,37 @@
         "intent": "inform",
         "entities": [
           {
+            "start": 15,
+            "end": 20,
+            "value": "mango",
+            "entity": "item"
+          }
+        ],
+        "text": "could not find mango"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
             "start": 7,
             "end": 12,
-            "value": "apple",
+            "value": "mango",
             "entity": "item"
           }
         ],
-        "text": "i want apple"
-      },
-      {
-        "intent": "confirm",
-        "text": "yeah"
-      },
-      {
-        "intent": "greet",
-        "text": "hey"
+        "text": "needed mango"
       },
       {
         "intent": "inform",
         "entities": [
           {
-            "start": 9,
-            "end": 14,
-            "value": "apple",
+            "start": 13,
+            "end": 19,
+            "value": "mangos",
             "entity": "item"
           }
         ],
-        "text": "you have apple?"
-      },
-      {
-        "intent": "inform",
-        "text": "ok"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 10,
-            "end": 16,
-            "value": "fruits",
-            "entity": "item"
-          }
-        ],
-        "text": "where are fruits?"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 10,
-            "end": 18,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "are there bannanas?"
+        "text": "please bring mangos"
       },
       {
         "intent": "greet",
@@ -73,61 +49,61 @@
         "intent": "inform",
         "entities": [
           {
+            "start": 15,
+            "end": 22,
+            "value": "bannana",
+            "entity": "item"
+          }
+        ],
+        "text": "could not find bannana"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
             "start": 7,
             "end": 12,
             "value": "apple",
             "entity": "item"
           }
         ],
-        "text": "i want apple"
-      },
-      {
-        "intent": "confirm",
-        "text": "yeah"
-      },
-      {
-        "intent": "greet",
-        "text": "hey"
+        "text": "needed apple"
       },
       {
         "intent": "inform",
         "entities": [
           {
-            "start": 9,
-            "end": 14,
+            "start": 13,
+            "end": 19,
+            "value": "mangos",
+            "entity": "item"
+          }
+        ],
+        "text": "please bring mangos"
+      },
+      {
+        "intent": "inform",
+        "entities": [
+          {
+            "start": 13,
+            "end": 19,
             "value": "apple",
             "entity": "item"
           }
         ],
-        "text": "you have apple?"
-      },
-      {
-        "intent": "inform",
-        "text": "ok"
+        "text": "please bring apple"
       },
       {
         "intent": "inform",
         "entities": [
           {
-            "start": 10,
-            "end": 16,
-            "value": "fruits",
+            "start": 13,
+            "end": 21,
+            "value": "bannana",
             "entity": "item"
           }
         ],
-        "text": "where are fruits?"
-      },
-      {
-        "intent": "inform",
-        "entities": [
-          {
-            "start": 10,
-            "end": 18,
-            "value": "apple",
-            "entity": "item"
-          }
-        ],
-        "text": "are there bannanas?"
+        "text": "please bring bannana"
       }
     ],
     "regex_features": [],
