@@ -5,8 +5,10 @@ actions:
 - utter_goodbye
 - utter_on_it
 - utter_anything_else
+- utter_sorry_missing
 - actions_search_item
 - actions_locate_item
+- actions_missing_item
 config:
   store_entities_as_slots: true
 entities:
@@ -37,3 +39,5 @@ templates:
   - text: hey there! how can I help you
   utter_on_it:
   - text: I'm on it
+  utter_sorry_missing:
+  - text: Sorry for the inconvinience. We will bring the item within few days.

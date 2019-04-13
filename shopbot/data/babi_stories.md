@@ -2,40 +2,36 @@
 * greet
  - utter_greet
 
-## story_item_query
-* inform{"item": "apple"}
- - utter_on_it
- - slot{"item":"apple"}
- - actions_search_item
-* confirm
- - utter_on_it
- - actions_locate_item
- - utter_anything_else
 
 ## strory_greeting
 * greet
  - utter_greet
 
-## story_item_query
-* inform{"item": "apple"}
- - utter_on_it
- - slot{"item":"apple"}
- - actions_search_item
-* confirm
- - utter_on_it
- - actions_locate_item
- - utter_anything_else
-
 ## strory_greeting
 * greet
  - utter_greet
 
-## story_item_query
-* inform{"item": "apple"}
- - utter_on_it
- - slot{"item":"apple"}
- - actions_search_item
-* confirm
- - utter_on_it
- - actions_locate_item
- - utter_anything_else
+
+## story_item_missing
+* inform{"item": "mango"}
+ - utter_sorry_missing
+ - slot{"item":"mango"}
+ - actions_missing_item
+
+## story_item_missing
+* inform{"item": "mango"}
+ - utter_sorry_missing
+ - slot{"item":"mango"}
+ - actions_missing_item
+
+## story_item_missing
+* inform{"item": "mango"}
+ - utter_sorry_missing
+ - slot{"item":"mango"}
+ - actions_missing_item
+
+## story_item_missing
+* inform{"item": "mango"}
+ - utter_sorry_missing
+ - slot{"item":"mango"}
+ - actions_missing_item
