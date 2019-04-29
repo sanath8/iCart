@@ -1,0 +1,120 @@
+.chatbot {
+    float: left;
+    width: 30vw;
+    height: inherit;
+    /* background-color:  darkslategrey; */
+    overflow: auto;
+    background-image: url('../../images/chat.png')
+}
+.chatbotHeader{
+    width: inherit;
+    height: 4vh;
+    background-color: #6E48AA;
+    overflow: auto;
+    text-align: center;
+    color: #ffffff;
+    font-size: 3vh;
+}
+.messageArea{
+    width: 29.5vw;
+    height: 64.5vh;
+    margin-left: 0.25vw;
+    margin-bottom: 0.25vw;
+    /* margin-top: 0.2vw; */
+    /* background-color: darkslategrey; */
+    overflow: auto;
+    /* resize: none; */
+}
+.messageBody{
+    width: 20vw;
+    min-height: 2vh;
+    float: right;
+    background-color: #26BD00;
+    margin: 2px;
+    border-radius: 5px;
+    padding: 0.5vw;
+    /* font-size: 2vw; */
+}
+.replyBody{
+    width: 20vw;
+    float: left;
+    background-color: orangered;
+    margin: 2px;
+    border-radius: 5px;
+    padding: 0.5vw;
+    /* font-size: 2vw; */
+}
+.inputArea{
+    height: 6vh;
+}
+.messageInput{
+    float: left;
+    width: 24.5vw;
+    /* height: 5.3vh; */
+    padding-inline-start: 1vw;
+    margin-left: 0.25vw;
+    border-radius: 3vw;
+    border: 2px #000000;
+    overflow: hidden;
+}
+.msgSubmit{
+    float: left;
+    width: 4vh;
+    height: 4vh;
+    margin-top: 0.5vh;
+    margin-left: 0.25vw;
+    border-radius: 4vw;
+    background-color: #162231;
+    /* border: #000000 */
+    padding-top: 0.4vw;
+    padding-inline-start : 0.4vw
+}
+.keyboard{
+    /* width: auto; */
+    /* height: 33vh; */
+    position: fixed;
+    bottom: 0%;
+    right: 0%;
+    z-index: 1;
+    display: block;
+    overflow: auto;
+    background-color: aliceblue;
+}
+@media only screen and (min-width: 400px){
+    .keyboard{
+        width: 60vw;
+    }
+}
+@media only screen and (max-width: 400px){
+    .keyboard{
+        width: 240px;
+    }
+    .messageArea{
+        height: 57vh;
+    }
+}
+@media only screen and (max-width: 450px){
+    .messageInput{
+        width: 33.5vw;
+    }
+}
+@media only screen and (max-height: 660px) {
+    .keyboard{
+        height: 175px;
+    }
+}
+@media only screen and (max-height: 600px) and (max-width: 400px){
+    .messageArea{
+        height: 52vh;
+    }
+}
+@media only screen and (max-height: 530px) and (max-width: 400px){
+    .messageArea{
+        height: 47vh;
+    }
+}
+@media only screen and (max-height: 460px) and (max-width: 400px){
+    .messageArea{
+        height: 42vh;
+    }
+}

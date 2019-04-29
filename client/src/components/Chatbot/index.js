@@ -1,9 +1,9 @@
 import React from 'react';
-import './../css/main.css';
-// import Datalist from'./datalist';
-import KeyBoard from "./keyboard"
+import KeyBoard from "../Keyboard"
 import "react-simple-keyboard/build/css/index.css";
-import {getReply} from '../apis/getReply';
+import {getReply} from '../../apis/getReply';
+import {IoIosSend} from 'react-icons/io';
+import './main.css';
 
 class Chatbot extends React.Component {
    constructor(props){
@@ -59,7 +59,7 @@ class Chatbot extends React.Component {
             {/* <Datalist getCart = {this.props.getCart} getData = {this.props.getData}/> */}
             <div className="chatbotHeader">Need any Help?</div>
             <div className="messageArea" id="postContainer"></div>
-            <div>
+            <div className="inputArea">
                <textarea 
                   className="messageInput"
                   id='myPost'
@@ -71,13 +71,16 @@ class Chatbot extends React.Component {
                   // onBlur={this.hideKeyboard} 
                >
                </textarea>
-               <button className="msgSubmit" onClick={this.sendMessage}>></button>
+               <div className="msgSubmit" onClick={this.sendMessage}>
+                  <IoIosSend color="white" size="3vh"/>
+               </div>
             </div>
             <div id="keyBoard" className='keyboard' style={{display: "none"}}>
                <KeyBoard
                   ref={this.keyboard}
                   getInput={this.getInput}
                   inputName={"input"}
+                  input= {this.state.input}
                   // baseClass = {"keyboard"}
                />
             </div>

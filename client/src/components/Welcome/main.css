@@ -1,0 +1,39 @@
+*{
+    margin: 0
+}
+.landing{
+    width: 100vw;
+    height: 100vh;
+    /* text-align: center; */
+}
+.bg {
+    background-image: url("../../images/background.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.text {
+    padding-top: 20vh;
+    padding-bottom: 5vh;
+    width: inherit;
+    text-align: end;
+    font-size: xx-large;
+    color: darkslategrey;
+    /* padding: 10vw; */
+}
+.button {
+    float: right;
+}
+.form{
+    width: 50vw;
+    padding: 10vh 10vh 30vh 10vh;
+    font-size: x-large;
+    color: darkslategrey;
+}
+.input{
+    width: 30vw;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    text-align: end;
+}

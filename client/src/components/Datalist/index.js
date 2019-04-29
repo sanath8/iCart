@@ -1,94 +1,68 @@
 import React from 'react';
-import './../css/main.css';
-import KeyBoard from "./keyboard"
+import KeyBoard from "../Keyboard"
 import "react-simple-keyboard/build/css/index.css";
-import {getDataFromDb} from '../apis/getData';
-import {getItemlist} from '../apis/getItemlist';
+import './main.css';
 
 class Datalist extends React.Component {
    constructor(props){
       super(props);
       this.keyboard = React.createRef();
       this.state = {
-         // data: ['oreo','shampoo','lays','shoe'],
-         data: [],
          productNames: [],
-         cart: [],
          input: ""
       }
    }
 
-   componentDidMount() {
-      getDataFromDb().then(res =>{
-         if(res.data)
-         this.setState({
-            data: res.data
-         })
-         this.props.getData(this.state.data)
-      })
-      // setTimeout(() => {
-      //    this.props.getData(this.state.data)
-      // },5000)
-   }
-
-   getProductNames = () => {
-      this.state.data.forEach(element => {
-         if(!this.state.productNames.includes(element.productName))
-         this.state.productNames.push(element.productName)
-      })
-   }
-
    add = () => {
       document.getElementById('keys').style.display = "none"
-      var e = document.getElementById("itemName")
-      if(!this.state.cart.includes(e.value) && (e.value))
-         this.state.cart.push(e.value)
-      this.props.getCart(this.state.cart)
-      this.props.getData(this.state.data)
-      console.log(this.state.cart.length)
-      // e.value = ""
+      var item = document.getElementById("itemName").value
       this.setState({
-         input: ""
+         input: "",
+         productNames: []
       },() => {
          this.keyboard.current.setInput("");
       })
-      // this.keyboard.current.setInput("");
+      if(!this.props.cart.includes(item) && (item))
+         this.props.AddToCart.bind(null)(item)
+      this.keyboard.current.setInput("");
    }
    
    showKeyboard(){
       document.getElementById('keys').style.display = "initial"
    }
 
+   filterItems = (string) => {
+      let {products} = this.props
+      let matchingProducts = []
+      for(var i=0; i< products.length; i++){
+         var product_name = (products[i].name).toLowerCase();
+         var searchString = (string).toLowerCase();
+         if(product_name.indexOf(searchString) !== -1){
+             matchingProducts.push(products[i].name);
+         }
+      }
+      return matchingProducts
+   }
    getInput = (input) => {
       if(input.length)
-      getItemlist(input).then(res => {
          this.setState({
-            productNames: res
+            input: input,
+            productNames: this.filterItems(input)
          })
-      })
-      this.setState({
-         input: input,
-      })
    }
 
    onChangeInput = event => {
       let input = event.target.value;
-      // console.log(event)
       if(input.length)
-      getItemlist(input).then(res => {
          this.setState({
-            productNames: res
+            input: input,
+            productNames: this.filterItems(input)
+         },() => {
+            this.keyboard.current.setInput(input);
          })
-      })
-      this.setState({
-          input: input
-        },() => {
-          this.keyboard.current.setInput(input);
-      })
     }
 
    render() {
-      // this.getProductNames()
       const { productNames } = this.state
       return (
          <div className="datalist">

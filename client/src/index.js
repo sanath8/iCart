@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './mainScreen';
+import App from './App';
 // import App from './welcome';
 // import App from './components/register';
 import * as serviceWorker from './serviceWorker';
