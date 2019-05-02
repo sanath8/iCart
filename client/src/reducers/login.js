@@ -3,7 +3,7 @@ let loginDefault = {
     recognized: false,
     recommended: false,
     age: 0,
-    gender: 'Male'
+    gender: 'male'
 }
 
 export function login(defaultStore=loginDefault, action){

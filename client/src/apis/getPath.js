@@ -1,6 +1,8 @@
 import axios from "axios";
+import ips from '../ipaddress';
+
 export const getPath = (source,destination) => {
-    return axios.post("http://127.0.0.1:9000/shortestPath?current="+source+"&destination="+destination)
+    return axios.post(ips.shortestPathUrl+":9000/shortestPath?current="+source+"&destination="+destination)
     .then(res => {
         // console.log(res.data.shortest_path)
         return {data: res.data.shortest_path}
