@@ -1,0 +1,30 @@
+div{
+    margin: 0;
+}
+input:focus, textarea {
+    outline: none !important;
+}
+.body{
+    /* display: inline-block; */
+    width: 100vw;
+    height: 75vh;
+}
+.sidebar {
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 5vh;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+.layout {
+    width: 100vw;
+    height: inherit;
+    float: right;
+    transition: 0.5s;
+}
+label{
+    font-size: 3vh;
+    margin: 0;
+}

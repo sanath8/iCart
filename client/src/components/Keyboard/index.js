@@ -1,5 +1,4 @@
 import React from 'react';
-import './../css/main.css';
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 
@@ -13,16 +12,11 @@ class KeyBoard extends React.Component {
    }
   
     onChange = input => {
-      this.setState({
-        input: input
-      });
-    //   this.keyboard.setInput(input)
+      this.setInput(input)
       this.props.getInput(this.state.input)
-      // console.log("Input changed", input);
     };
   
     onKeyPress = button => {
-      // console.log("Button pressed", button);
       if (button === "{shift}") this.handleShift();
       else if (button === "{num}") this.setState({layoutName: "num"});
       else if (button === "{abc}") this.setState({layoutName: "default"});
@@ -39,8 +33,7 @@ class KeyBoard extends React.Component {
         this.setState({
             input: input
         })
-        // console.log('reset')
-        this.keyboard.setInput("");
+        this.keyboard.keyboard.setInput(input);
     }
 
    render() {

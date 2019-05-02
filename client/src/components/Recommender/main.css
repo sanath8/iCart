@@ -1,0 +1,71 @@
+.recommender {
+    vertical-align: middle;
+    width: 100vw;
+    height: 20vh;
+    background-color: #162231;
+}
+.item {
+    margin: 0;
+    width: 25%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    /* animation: rotateX  1s ease-in-out; */
+    /* animation:spin 4s linear infinite; */
+}
+.details{
+    padding: 5px;
+    color: #ffffff;
+    margin: 0;
+    width: auto;
+    height: 100%;
+    float: left;
+    /* overflow: auto; */
+    animation: rotateY  1s ease-in-out;
+}
+.item img{
+    background-color: #DAE8E8;
+    margin: 0;
+    float: left;
+    margin: 1px;
+    width: 40%;
+    height: 100%;
+    opacity: 0.9;
+    animation: rotateX  1s ease-in-out;
+}
+.label { 
+    display:block;
+    width:14vw;
+    word-wrap:break-word;
+    float: left;
+    padding: 0;
+}
+/* @keyframes slideInFromLeft {
+    50% {
+      transform: translateY(50%);
+    }
+    0%, 100% {
+      transform: translateY(0);
+    }
+} */
+@keyframes rotateX{
+    from {
+        transform: rotateX(180deg);
+    }
+    to {
+        transform: rotateX(360deg);
+    }
+}
+@keyframes rotateY{
+    from {
+        transform: rotateY(180deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+/* @keyframes spin { 
+    100% { 
+        transform:rotate(360deg); 
+    } 
+} */

@@ -1,0 +1,59 @@
+.ListItem {
+    box-sizing: border-box;
+    padding: 0.5vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    background-color: #f1f1f1;
+    margin: 0.2vw
+    /* margin: 0.2vw; */
+  }
+  
+  .BouncingListItem {
+    transition: transform 0.5s ease-out;
+    box-sizing: border-box;
+    padding: 0.5vw;
+    text-align: center;
+    background-color: #f1f1f1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 0.2vw;
+  }
+  
+  .Background {
+    position: absolute;
+    width: 98.6%;
+    height: 85%;
+    z-index: -1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 16px;
+    color: white;
+    background-color:darkred;
+    box-sizing: border-box;
+    margin: 0.2vw;
+  }
+  .Background1 {
+    position: absolute;
+    width: 49%;
+    height: 85%;
+    z-index: -1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 16px;
+    color: white;
+    background-color:darkgreen;
+    box-sizing: border-box;
+    margin: 0.2vw;
+  }
+  .Wrapper {
+    position: relative;
+    transition: max-height 0.5s ease;
+    max-height: 1000px;
+    transform-origin: top;
+    overflow: hidden;
+    width: 29.4vw;
+    margin: 0.2vw;
+  }

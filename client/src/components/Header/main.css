@@ -1,0 +1,23 @@
+.header {
+    width: 100vw;
+    background-color:  #000000;
+    height: 5vh;
+    text-align: center;
+    color: #ffffff;
+    line-height: 2em;
+    /* vertical-align: middle */
+}
+.icon{
+    float: left;
+    margin: 0.4vw;
+    margin-left: 1vw;
+    color: #ffffff;
+    size: 3vh;
+}
+.logoff{
+    float: right;
+    margin: 0.4vw;
+    margin-right: 1vw;
+    color: #ffffff;
+    size: 3vh;
+}
