@@ -18,7 +18,7 @@ app = Flask(__name__)
 CORS(app)
 
 ips = {
-    imageProcessingServer = "192.168.1.7"
+    "imageProcessingServer" : "192.168.1.7"
 }
 
 @app.route('/')
@@ -28,7 +28,7 @@ def index():
 @app.route('/run', methods = ['GET', 'POST'])
 def getdata():
     os.system('./upload_server.sh')
-    URL = "http://"+ips.imageProcessingServer+":9000/imageProcessing"
+    URL = "http://"+ips["imageProcessingServer"]+":9000/imageProcessing"
     # sending get request and saving the response as response object
     r = requests.get(url = URL)
     # extracting data in json format
