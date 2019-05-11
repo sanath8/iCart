@@ -1,16 +1,14 @@
 import axios from 'axios';
+import data from '../data';
+import ips from '../ipaddress'; 
+
 export function FetchProducts(){
-    return (dispatch) => {
-        axios.get("http://localhost:3001/products?productName=").then(res=>{
-            dispatch({type:'FETCH_PRODUCTS', data:res.data})
-        }).catch(err=>{
-            console.log(err)
-        })
-    }
+    return ({type:'FETCH_PRODUCTS',data:data.data})
 }
 export function FetchRecommends(age,gender){
     return (dispatch) => {
-        axios.get("http://127.0.0.1:9000/recommendations?age="+age+"&gender="+gender+"&month=january&number=10").then(res=>{
+        axios.get(ips.recommendationUrl+":9000/recommendations?age="+age+"&gender="+gender+"&month=january&number=10").then(res=>{
+            console.log(res.data.recommendations)
             dispatch({type:'FETCH_RECOMMENDS', data:res.data.recommendations})
         }).catch(err=>{
             console.log(err)
@@ -20,7 +18,7 @@ export function FetchRecommends(age,gender){
 }
 export function RunRecognition(){
     return (dispatch) => {
-        axios.get("http://192.168.43.210:9005/run").then(res=>{
+        axios.get(ips.raspberryPiUrl+":9005/run").then(res=>{
             dispatch({type:'RUN_RECOGNITION', data:res.data})
         }).catch(err=>{
             console.log(err)
@@ -30,7 +28,7 @@ export function RunRecognition(){
 }
 export function SubmitNumber(number){
     return (dispatch) => {
-        axios.get("http://192.168.1.4:9005/rerun?phone_number="+number).then(res=>{
+        axios.get(ips.raspberryPiUrl+":9005/rerun?phone_number="+number).then(res=>{
             dispatch({type:'RUN_RECOGNITION', data:res.data})
         }).catch(err=>{
             console.log(err)
