@@ -1,7 +1,7 @@
 import React from 'react';
 import './main.css';
 import { getPath } from '../../apis/getPath';
-
+import ips from '../../ipaddress';
 // const nodes = [{x:50,y:25},{x:125,y:25},{x:200,y:25},{x:200,y:75},{x:125,y:75},{x:50,y:75}]
 const nodes = [{x:380,y:350},{x:650,y:350},{x:910,y:350},{x:910,y:850},{x:650,y:850},{x:380,y:850}]
 // const sections = ["Food","Stationary","Sports","Personal Care","Clothing","Home Care"]
@@ -14,7 +14,7 @@ class Graph extends React.Component {
     componentDidMount() {
         var that = this;
         (function(){
-            var ws = new WebSocket("ws://192.168.43.210:5678/")
+            var ws = new WebSocket(ips.webSocketUrl+":5678/")
             // var ws = new WebSocket("ws://localhost:5678/")
             ws.onmessage = function (event) {
                 that.setState({

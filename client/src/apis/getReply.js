@@ -1,7 +1,9 @@
 import axios from "axios";
+import ips from '../ipaddress';
+
 export const getReply = (query) => {
     console.log(query)
-    return axios.post("http://localhost:5005/conversations/default/respond",{query: query})
+    return axios.post(ips.shopbotUrl+":5005/conversations/default/respond",{query: query})
     // return axios.post("http://192.168.1.13:5005/conversations/default/respond",{query: query})
     .then(res => 
         {
